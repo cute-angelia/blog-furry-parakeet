@@ -232,6 +232,95 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/21/vps/ss/" itemprop="url">
+                  shadowsocks-libev搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-21T22:27:22+08:00" content="2017-03-21">
+              2017-03-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>日期：2017 年 02 月 24 日</p>
+</blockquote>
+<p>主流版本: Python,libev,Go,Nodejs</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget --<span class="keyword">no</span>-check-certificate -O shadowsocks-libev.<span class="keyword">sh</span> http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/teddysun/shadowsocks_install/master/shadowsocks-libev.<span class="keyword">sh</span></div><div class="line"></div><div class="line">修改加密方式,端口,密码</div><div class="line"><span class="keyword">vim</span> shadowsocks-libev.<span class="keyword">sh</span></div><div class="line"></div><div class="line">chmod +<span class="keyword">x</span> shadowsocks-libev.<span class="keyword">sh</span></div><div class="line">./shadowsocks-libev.<span class="keyword">sh</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee shadowsocks-libev.<span class="built_in">log</span></div></pre></td></tr></table></figure>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./shadowsocks-libev<span class="selector-class">.sh</span> uninstall</div></pre></td></tr></table></figure>
+<h3 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">启动：<span class="meta-keyword">/etc/</span>init.d/shadowsocks start</div><div class="line">停止：<span class="meta-keyword">/etc/</span>init.d/shadowsocks stop</div><div class="line">重启：<span class="meta-keyword">/etc/</span>init.d/shadowsocks restart</div><div class="line">查看状态：<span class="meta-keyword">/etc/</span>init.d/shadowsocks status</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/02/diary/way-gg/" itemprop="url">
                   域名甩卖
                 </a>
@@ -1086,115 +1175,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/04/diary/mac-shell-proxy/" itemprop="url">
-                  MAC 终端代理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-05T10:38:45+08:00" content="2016-05-05">
-              2016-05-05
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>Surge Mac</li>
-</ol>
-<p>如果用的是 zsh 终端，在 ~/.zshrc 配置文件中添加下面一段，以后使用的时候输入 Proxy 打开代理模式，关闭代理时输入 noproxy 即可。</p>
-<p><img src="http://ww1.sinaimg.cn/large/7853084cgw1f86toymul4j21320t6wjw.jpg" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># where proxy</span></div><div class="line"><span class="function"><span class="title">proxy</span></span> () &#123;</div><div class="line">  <span class="built_in">export</span> http_proxy=<span class="string">"http://127.0.0.1:6152"</span></div><div class="line">  <span class="built_in">export</span> https_proxy=<span class="string">"http://127.0.0.1:6152"</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"HTTP Proxy on"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># where noproxy</span></div><div class="line"><span class="function"><span class="title">noproxy</span></span> () &#123;</div><div class="line">  <span class="built_in">unset</span> http_proxy</div><div class="line">  <span class="built_in">unset</span> https_proxy</div><div class="line">  <span class="built_in">echo</span> <span class="string">"HTTP Proxy off"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果是用的是系统默认的终端，可以从 Surge Mac 菜单里选择「Copy Shell Export Command」，然后粘贴到终端里来打开代理。</p>
-<p>命令行其实和上面在 zsh 中用到的是一样的。</p>
-<ol>
-<li>shadowsocksX Mac</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># windows</span></div><div class="line"><span class="built_in">set</span> http_proxy=127.0.0.1:6152</div><div class="line"><span class="built_in">set</span> https_proxy=127.0.0.1:6152</div><div class="line"></div><div class="line"><span class="comment"># mac</span></div><div class="line"><span class="built_in">export</span> http_proxy=<span class="string">"http://127.0.0.1:6152"</span></div><div class="line"><span class="built_in">export</span> https_proxy=<span class="string">"http://127.0.0.1:6152"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>以上是基于<code>http</code>形式,但是 <code>Mac</code> 的<code>shadowsocksX</code>并不提供<code>http</code>方式,而是socket v5,导致无法使用…<br>另外还有个问题是mac SIP保护机制.</p>
-</blockquote>
-<p>使用 <code>proxychains4</code> 将 <code>shadowsocksX</code> 转化 socket v5 为 http</p>
-<blockquote>
-<p>mac SIP保护机制,需要把命令<code>curl</code>,<code>wget</code>等移到外部文件夹</p>
-<p>或者关闭SIP保护机制<br>重启时候 按住command+r 进去,打开终端输入 <code>csrutil disable</code> ,然后 <code>reboot</code></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1235,7 +1221,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives/">
-              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-count">71</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
