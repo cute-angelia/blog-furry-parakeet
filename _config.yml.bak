@@ -70,7 +70,7 @@ social:
   oschina: http://git.oschina.net/vanillan
   weibo: http://weibo.com/349252963
   zhihu: http://www.zhihu.com/people/gu-chang-feng
-  about: http://site.chenyunwen.cn
+  about: http://chenyunwen.cn
 since: 2013
 #duoshuo_shortname: chenyunwen
 #disqus_shortname: rose1988c
@@ -85,5 +85,5 @@ menu:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:rose1988c/rose1988c.github.com.git
+  repo: git@github.com:rose1988c/rose1988c.github.io.git
   branch: [master]
