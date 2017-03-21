@@ -2,9 +2,16 @@
  
 [chenyunwen.cn](http://chenyunwen.cn)
 
+### 初始设置
+
+````
+git config --global user.name "hexo"
+git config --global user.email "rose20.99.c@gmail.com"
+
 npm install hexo-cli -g
 npm install hexo-deployer-git --save
 npm install
+````
 
 ### update hexo
 
