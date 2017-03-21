@@ -4,6 +4,7 @@ tags: [ss]
 ---
 
 > 日期：2017 年 02 月 24 日
+> centos
 
 主流版本: Python,libev,Go,Nodejs
 
