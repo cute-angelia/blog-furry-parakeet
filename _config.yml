@@ -86,4 +86,4 @@ menu:
 deploy:
   type: git
   repo: git@github.com:rose1988c/rose1988c.github.io.git
-  branch: [master]
+  branch: [gh-pages]
