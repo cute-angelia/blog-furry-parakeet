@@ -1,0 +1,54 @@
+title: idea
+date: 2014-11-10 04:13:27
+tags: [ide]
+---
+
+### 设置
+
+1. 设置快捷键, eclipse , replace 
+2. 行间距， menlo 14 1.2
+3. live_template
+
+* cyw
+
+````
+/**
+ * $fileNameWithoutExtension$
+ * $END$
+ *
+ * @author : Cyw
+ * @email  : rose2099.c@gmail.com
+ * @created: $date$ $time$
+ * @logs   :
+ *
+ */
+````
+
+* filetest
+
+````
+echo '<pre>';
+print_r($ITERABLE$);
+exit;
+````
+
+* dd
+
+````
+var_dump($ITERABLE$);
+exit;
+````
+
+4. file and code template
+
+````
+ /**
+ * ${FILE_NAME}
+ *
+ * @author : Cyw
+ * @email  : rose2099.c@gmail.com
+ * @created: ${DATE} ${TIME}
+ * @logs   :
+ *
+ */
+````
