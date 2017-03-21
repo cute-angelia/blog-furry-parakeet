@@ -85,5 +85,5 @@ menu:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:rose1988c/rose1988c.github.io.git
+  repo: git@github.com:aaccin/furry-parakeet.git
   branch: [gh-pages]
