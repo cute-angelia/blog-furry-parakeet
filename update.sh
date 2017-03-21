@@ -1,9 +1,9 @@
 #!/bin/bash
-cd /data/www/blog
+cd /data/www/furry-parakeet
 whoami
 
 git fetch --all
-git reset --hard origin/hexo
+git reset --hard origin/master
 
 echo "update ok!"
 
