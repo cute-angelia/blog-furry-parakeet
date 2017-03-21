@@ -10,12 +10,12 @@ npm install
 
 ````
 cp _config.yml _config.yml.bak
-rm package.json
+rm package.json -f
 hexo init
 npm install
 npm install hexo-deployer-git --save
-cp _config.yml.bak _config.yml
-rm source/_posts/hello-world.md
+cp _config.yml.bak _config.yml -f
+rm source/_posts/hello-world.md -f
 ````
 
 ### crontab
