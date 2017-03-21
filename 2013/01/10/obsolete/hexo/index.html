@@ -1,0 +1,797 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,blog," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="What’s Hexo ?
+
+A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
+
+
+Hexo主页去Hexo主页
+Hexo安装Hexo安装Install说明
+在安装发布的问题 github
+1. fatal: ‘furtee.github.com’ does not appear to be a git reposit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 静态博客系统">
+<meta property="og:url" content="http://rose1988c.github.io/2013/01/10/obsolete/hexo/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="What’s Hexo ?
+
+A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
+
+
+Hexo主页去Hexo主页
+Hexo安装Hexo安装Install说明
+在安装发布的问题 github
+1. fatal: ‘furtee.github.com’ does not appear to be a git reposit">
+<meta property="og:updated_time" content="2015-11-19T15:04:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo 静态博客系统">
+<meta name="twitter:description" content="What’s Hexo ?
+
+A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
+
+
+Hexo主页去Hexo主页
+Hexo安装Hexo安装Install说明
+在安装发布的问题 github
+1. fatal: ‘furtee.github.com’ does not appear to be a git reposit">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Hexo 静态博客系统 | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Hexo 静态博客系统
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-01-10T04:41:48-05:00" content="2013-01-10">
+              2013-01-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>What’s Hexo ?</p>
+<blockquote>
+<p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
+</blockquote>
+<hr>
+<h2 id="Hexo主页"><a href="#Hexo主页" class="headerlink" title="Hexo主页"></a>Hexo主页</h2><p>去<a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a>主页</p>
+<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>Hexo安装<a href="http://zespia.tw/hexo/docs/" target="_blank" rel="external">Install</a>说明</p>
+<h3 id="在安装发布的问题-github"><a href="#在安装发布的问题-github" class="headerlink" title="在安装发布的问题 github"></a>在安装发布的问题 github</h3><hr>
+<h2 id="1-fatal-‘furtee-github-com’-does-not-appear-to-be-a-git-repository"><a href="#1-fatal-‘furtee-github-com’-does-not-appear-to-be-a-git-repository" class="headerlink" title="1. fatal: ‘furtee.github.com’ does not appear to be a git repository"></a>1. fatal: ‘furtee.github.com’ does not appear to be a git repository</h2><p>解决方法:</p>
+<pre><code>_config.yml
+deploy:
+  type: github
+  repository: git@github.com:rose1988c/rose1988c.github.com.git
+  branch: master
+</code></pre><h2 id="2-nothing-to-commit-working-directory-clean"><a href="#2-nothing-to-commit-working-directory-clean" class="headerlink" title="2. nothing to commit, working directory clean"></a>2. nothing to commit, working directory clean</h2><p>解决方法:</p>
+<pre><code>rm -rf .deploy
+hexo generate
+hexo deploy
+</code></pre><p><del>hexo setup_deploy</del></p>
+<h2 id="3-GitHub-Page-http-rose1988c-github-com-404"><a href="#3-GitHub-Page-http-rose1988c-github-com-404" class="headerlink" title="3. GitHub Page http://rose1988c.github.com 404"></a>3. GitHub Page <a href="http://rose1988c.github.com" target="_blank" rel="external">http://rose1988c.github.com</a> 404</h2><p>解决方法:</p>
+<pre><code>username.github.com的username必須與使用者名稱相同
+只有在repository為username.github.com時才有效，
+其他repository皆為username.github.com/repository
+</code></pre><h2 id="4-Archives-Tags-Categorys-显示标题设置"><a href="#4-Archives-Tags-Categorys-显示标题设置" class="headerlink" title="4.  Archives | Tags | Categorys 显示标题设置"></a>4.  Archives | Tags | Categorys 显示标题设置</h2><p>解决方法:</p>
+<pre><code>_config.yml
+# Archives
+## 2: Enable pagination
+## 1: Disable pagination
+## 0: Fully Disable
+archive: 1
+category: 1
+tag: 1
+</code></pre><h2 id="5-删除线的使用"><a href="#5-删除线的使用" class="headerlink" title="5. 删除线的使用"></a>5. 删除线的使用</h2><p>解决方法:</p>
+<pre><code>&lt;del&gt;hexo setup_deploy&lt;/del&gt;
+</code></pre><h2 id="6-多台电脑共同发布问题"><a href="#6-多台电脑共同发布问题" class="headerlink" title="6. 多台电脑共同发布问题"></a>6. 多台电脑共同发布问题</h2><p> 家里发布，公司发布，不同电脑的发布。我建了了新的一个<code>GitHub</code><code>Repositories</code></p>
+<p> 就可以同步了，不过因为2个电脑配置不一样问题也产生了。</p>
+<p> 有时候无法 <code>hexo generate</code>, 这可能是 <code>.deploy</code>文件夹的配置问题，可以删除它</p>
+<pre><code>rm -rf .deploy
+</code></pre><p>可能有时候还需要删除 </p>
+<pre><code>rm -rf .cache
+</code></pre><p>如果还是不能<code>hexo generate</code>，需要备份，<code>_config.yml</code>,进行<code>hexo init</code></p>
+<p>当然如果你修改过，<code>themes</code> 下的 <code>_config.yml</code>，也请备份下。</p>
+<h2 id="7-不显示分类"><a href="#7-不显示分类" class="headerlink" title="7. 不显示分类"></a>7. 不显示分类</h2><pre><code>categories: Node.js
+</code></pre><p>分类是 <code>categories</code>,不是<code>category</code>,这样就有了。</p>
+<h2 id="8-没有index-html-or-theme-not-support"><a href="#8-没有index-html-or-theme-not-support" class="headerlink" title="8. 没有index.html or theme not support"></a>8. 没有index.html or theme not support</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">需要执行 npm <span class="keyword">install</span></div></pre></td></tr></table></figure>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="http://jekyllrb.com/" target="_blank" rel="external">Jekyll</a></li>
+<li><a href="http://octopress.org/" target="_blank" rel="external">Octopress</a> </li>
+<li><p><a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a></p>
+</li>
+<li><p><a href="http://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby</a></p>
+</li>
+<li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
+</ul>
+<h2 id="高可用"><a href="#高可用" class="headerlink" title="高可用"></a>高可用</h2><p>参考：<br><a href="http://blog.jamespan.me/2015/10/26/ha-deployment-for-blog/" target="_blank" rel="external">静态博客高可用部署实践</a></p>
+<p>目前：chenyunwen.cn 部署方案</p>
+<p>vps2台分布式(linode/bandwagonhost)</p>
+<p>nginx 配置如下：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="section">server</span> &#123;</div><div class="line">  <span class="attribute">server_name</span> www.chenyunwen.cn chenyunwen.cn;</div><div class="line">  <span class="attribute">return</span> <span class="number">301</span> https://chenyunwen.cn<span class="variable">$request_uri</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span> <span class="number">4001</span>;</div><div class="line">    <span class="attribute">port_in_redirect</span> <span class="literal">off</span>;</div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">proxy_pass</span> http://rose1988c.github.io/;</div><div class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span> <span class="number">4002</span>;</div><div class="line">    <span class="attribute">port_in_redirect</span> <span class="literal">off</span>;</div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">proxy_pass</span> http://hexo:4000/;</div><div class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="attribute">upstream</span> backend_blog_me &#123;</div><div class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:4001</span>;</div><div class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:4002</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="section">server</span> &#123;</div><div class="line">    <span class="attribute">listen</span>      <span class="number">443</span> ssl;</div><div class="line">    <span class="attribute">server_name</span>  chenyunwen.cn;</div><div class="line"></div><div class="line">    <span class="attribute">ssl_certificate</span> /etc/letsencrypt/live/chenyunwen.cn/fullchain.pem;</div><div class="line">    <span class="attribute">ssl_certificate_key</span> /etc/letsencrypt/live/chenyunwen.cn/privkey.pem;</div><div class="line"></div><div class="line">    <span class="attribute">location</span> / &#123;</div><div class="line">        <span class="attribute">proxy_next_upstream</span> http_502 http_503 http_504 http_404 <span class="literal">error</span> timeout invalid_header;</div><div class="line">        <span class="attribute">proxy_pass</span> http://backend_blog_me;</div><div class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="attribute">error_page</span> <span class="number">497</span>  https://<span class="variable">$host</span><span class="variable">$uri</span>?<span class="variable">$args</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+            <a href="/tags/blog/" rel="tag">#blog</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/01/10/obsolete/markdown-setting-with-sublime-text2/" rel="next" title="配置Sublime Text使用Markdown，语法高亮,生成HTML">
+                <i class="fa fa-chevron-left"></i> 配置Sublime Text使用Markdown，语法高亮,生成HTML
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/01/18/obsolete/the-cloud-disks/" rel="prev" title="Dropbox见解">
+                Dropbox见解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo主页"><span class="nav-number">1.</span> <span class="nav-text">Hexo主页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在安装发布的问题-github"><span class="nav-number">2.1.</span> <span class="nav-text">在安装发布的问题 github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-fatal-‘furtee-github-com’-does-not-appear-to-be-a-git-repository"><span class="nav-number">3.</span> <span class="nav-text">1. fatal: ‘furtee.github.com’ does not appear to be a git repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-nothing-to-commit-working-directory-clean"><span class="nav-number">4.</span> <span class="nav-text">2. nothing to commit, working directory clean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-GitHub-Page-http-rose1988c-github-com-404"><span class="nav-number">5.</span> <span class="nav-text">3. GitHub Page http://rose1988c.github.com 404</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Archives-Tags-Categorys-显示标题设置"><span class="nav-number">6.</span> <span class="nav-text">4.  Archives | Tags | Categorys 显示标题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-删除线的使用"><span class="nav-number">7.</span> <span class="nav-text">5. 删除线的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-多台电脑共同发布问题"><span class="nav-number">8.</span> <span class="nav-text">6. 多台电脑共同发布问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-不显示分类"><span class="nav-number">9.</span> <span class="nav-text">7. 不显示分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-没有index-html-or-theme-not-support"><span class="nav-number">10.</span> <span class="nav-text">8. 没有index.html or theme not support</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关链接"><span class="nav-number">11.</span> <span class="nav-text">相关链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高可用"><span class="nav-number">12.</span> <span class="nav-text">高可用</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

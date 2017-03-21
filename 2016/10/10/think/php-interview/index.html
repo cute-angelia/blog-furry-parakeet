@@ -1,0 +1,822 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="think,php,面试," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="面试角色互换，之前是别人面试我，现在转换角色面试别人了。
+刚开始面试完去没有头绪，想到什么问什么，后台慢慢也总结了点经验。
+首先把握面试的需求，需要什么样的人，做什么样的事情，未来发展潜力。
+流程都一样，先应聘者的自我介绍，能力考察，提问。 
+有了几次经验后，我把｀我的自我介绍｀放最前面了，总不能面试完了，对方都不知道你是谁">
+<meta property="og:type" content="article">
+<meta property="og:title" content="当下面试官">
+<meta property="og:url" content="http://rose1988c.github.io/2016/10/10/think/php-interview/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="面试角色互换，之前是别人面试我，现在转换角色面试别人了。
+刚开始面试完去没有头绪，想到什么问什么，后台慢慢也总结了点经验。
+首先把握面试的需求，需要什么样的人，做什么样的事情，未来发展潜力。
+流程都一样，先应聘者的自我介绍，能力考察，提问。 
+有了几次经验后，我把｀我的自我介绍｀放最前面了，总不能面试完了，对方都不知道你是谁">
+<meta property="og:updated_time" content="2017-03-21T13:41:24.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="当下面试官">
+<meta name="twitter:description" content="面试角色互换，之前是别人面试我，现在转换角色面试别人了。
+刚开始面试完去没有头绪，想到什么问什么，后台慢慢也总结了点经验。
+首先把握面试的需求，需要什么样的人，做什么样的事情，未来发展潜力。
+流程都一样，先应聘者的自我介绍，能力考察，提问。 
+有了几次经验后，我把｀我的自我介绍｀放最前面了，总不能面试完了，对方都不知道你是谁">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 当下面试官 | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                当下面试官
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T06:00:41-04:00" content="2016-10-10">
+              2016-10-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>角色互换，之前是别人面试我，现在转换角色面试别人了。</p>
+<p>刚开始面试完去没有头绪，想到什么问什么，后台慢慢也总结了点经验。</p>
+<p>首先把握面试的需求，需要什么样的人，做什么样的事情，未来发展潜力。</p>
+<p>流程都一样，先应聘者的自我介绍，能力考察，提问。 </p>
+<p>有了几次经验后，我把｀我的自我介绍｀放最前面了，总不能面试完了，对方都不知道你是谁</p>
+<a id="more"></a>
+<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>面试的开始，我都会先对公司、所面试的职位以及我自己进行自我介绍，这一点我觉得很重要，而且这个也是很多面试都忽略的一点。</p>
+<p>我觉得面试是个相互理解，相互尊重的过程，面试者可能对公司情况不了解，甚至是0了解。</p>
+<p>这个自我介绍就显得很有必要，而且必须是在面试开始的时候传递给应聘者。</p>
+<h3 id="应聘者的自我介绍"><a href="#应聘者的自我介绍" class="headerlink" title="应聘者的自我介绍"></a>应聘者的自我介绍</h3><p>因为简历中已经有应聘者的基本信息，所以这个介绍并不是为了得到更多的应聘者的基本信息</p>
+<p>只是从第一个环节转换到第二个环节——开始对应聘者的提问。</p>
+<p>自我信息介绍完了以后，我会开始让应聘者介绍他的工作经历、离职原因和各个公司大概的项目经历，这个环节就基本上可以考察出这个人的能力处于一个什么位置了。</p>
+<p>一般优秀的人在介绍他的项目经历都会显得比较自信，这个很关键，这就是所谓的成就。</p>
+<p>优秀的面试官这个时候就应该给对方以肯定，然后再在后面的环节中重点考察，不过有些遗憾的是大多数面试官的第一反应是怀疑，而且特别喜欢找出别人的破绽，然后发表自以为是的高见。如果对方所描叙的每个工作的经历都差不多，也没有什么值得大书特书的项目经历；</p>
+<p>如果这个人工作了比较长的时间了，那可以说明这个人并不是一个很有进取心，能力也一般的人，当然这并不是说就可以把别人pass掉了，最后是否招聘，需要考虑的还有这个职位需要什么样的人，以及这个职位能够提供多少薪水，别指望花少的钱招好的人，即使这样招过来了，别人也干不久的；</p>
+<p>如果应聘者工作的时间并不长，那么就可以考察一下对方是否有潜力了，我个人觉得招聘到一个有潜力的人是最成功的面试，因为这种人的薪水不会很高，而且有潜力意味着肯学习、积极，这会给整个团队带来很多正能量，并且如果他可以跟公司一起成长，那么假以时日，对公司而言就会是一笔相当可观的财富，对于对方而言也是一样，这是一种双赢。</p>
+<h3 id="能力考察"><a href="#能力考察" class="headerlink" title="能力考察"></a>能力考察</h3><p>这个环节是最关健的。通过第二个环节了解了应聘者大概处于一个什么位置，那么这一步就是要考察对方是否真正的具有我们所认为和所需要的技术能力、潜力，除此以为还要考察沟通能力和团队协作能力。</p>
+<p>所有这些能力都可以归结为一点，那就是解决问题的能力，因为程序员的日常工作就是不断的解决一个又一个的问题，那怎么考察呢？我一般会以下面几种方式来考察：</p>
+<ol>
+<li><p>选取应聘者自认为所做的项目中最有价值、最有挑战性或者最有难度的部分，我首先会了解他是怎么解决这些问题的，然后在他的回答中进行互动，提出各种各样的问题和假设，考察对方如何应对。</p>
+</li>
+<li><p>跟对方探讨他所最熟悉的技术，框架啊或者数据库之类的东西，或者是一些他在简历提到的或者是在第二个环节中提到的，注意这里主要的目的是探讨，因为有些技术我自己也未必熟悉，不过如果应聘者可以把某个他熟悉而你不熟悉的技术的特点讲清楚，这就相当不错了。</p>
+</li>
+<li><p>我提出一个问题来探讨如何实现，然后在实现的过程中不断提出新的问题。</p>
+</li>
+</ol>
+<p>一般在一次面试过程中这几种方式都会用到，而且三个过程都会伴随着在纸上或者白板上画一些解题思路以及架构图，当然最重要的是，这里必然会有一个部分要求应聘者写代码。</p>
+<p>对于上面的几种方式的结果，如果对方能够很好的理解我所提出的问题，以及对于各种问题都会有自己的见解和解决方案，并且对于某些问题还可以提出比较独到的见解，特别是可以对我所提出的问题进行批判，指出其中的不合理之处，那么很显然这会是一个很优秀的程序员</p>
+<p>当然这并不是说招聘就应该招这种人，这需要面试官来判断，结合职位的要求和薪资水平来决定吧。</p>
+<h3 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h3><p>一般面试的最后都会有这么一个环节，这个环节意义不大，不过我个人还是更喜欢应聘者会提出一些关于职位、团队和将来可能的工作相关的问题，不是很喜欢关于薪资、是否加班、以及福利的问题，这些都是跟人事相关的，至于加班，呵呵，做技术都会有一点，那些加班很多的公司估计也不会说得很明确吧。</p>
+<p>最后说下我个人在面试中不是很关注的东西：</p>
+<ol>
+<li><p>学历，看面试岗位要求，学校专业对口很好，如果不对口，对基础知识掌握的不够好，回答不上一些基础问题，那就说明有点不符合期望，减分。</p>
+</li>
+<li><p>工作经历。这不是说工作经历好和工作经历坏都一样，很显然工作经历好的会加分，但这并不意味着工作经历坏就会减分，我们处于一个什么样的环境大家心里都清楚，一个人学历不好一毕业就很难进入那种知名的公司，去不知名的公司，碰到垃圾公司的概率很高，工资低、加班多、福利差，所以跳槽多一点，完全可以理解。</p>
+</li>
+</ol>
+<p>以上就面试完成了，下面是一些具体的，我这边的需求。</p>
+<hr>
+<h2 id="能力考察－专业知识"><a href="#能力考察－专业知识" class="headerlink" title="能力考察－专业知识"></a>能力考察－专业知识</h2><p>下面说明下，我这边面试的一些需求</p>
+<h3 id="技术线（偏深度）："><a href="#技术线（偏深度）：" class="headerlink" title="技术线（偏深度）："></a>技术线（偏深度）：</h3><h4 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h4><ul>
+<li>用过哪些框架，laravel，phalcon，swool，lumen，silm，ci，tp，yii, 并说说框架机制,mvc,依赖注入，</li>
+<li>对框架本身的看法,自己会去设计实现一个framework吗, 会怎么设计，性能，并发，结构，开发</li>
+<li>ORM 是什么，对象关系映射，什么时候使用ORM</li>
+<li>http协议，tcp协议, PHP的运行机制，性能优化</li>
+</ul>
+<h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><p>设计模式（Singleton，Observer，Factory）</p>
+<h4 id="数据知识"><a href="#数据知识" class="headerlink" title="数据知识"></a>数据知识</h4><ul>
+<li>锁</li>
+<li>事务</li>
+<li>redis的类型设计</li>
+</ul>
+<h4 id="知识宽度"><a href="#知识宽度" class="headerlink" title="知识宽度"></a>知识宽度</h4><ul>
+<li>go</li>
+<li>java</li>
+<li>node</li>
+</ul>
+<h4 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h4><p>做过什么，是否复杂，负责什么，做了什么</p>
+<p>最近看的书</p>
+<p>职业规划，喜欢做什么，对工作环境有什么要求</p>
+<p>程序生命力询问，为什么喜欢做程序</p>
+<h4 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h4><ul>
+<li>如何设计用户登陆关系表</li>
+<li>用户关注双向查询，</li>
+<li>如何对一个亿级数据的表按照一个没有索引的字段进行统计</li>
+<li>缓存设计（冷热数据处理，命中率问题）</li>
+<li>微信抢红包设计</li>
+</ul>
+<h3 id="业务线（偏能力）："><a href="#业务线（偏能力）：" class="headerlink" title="业务线（偏能力）："></a>业务线（偏能力）：</h3><ol>
+<li>业务能力，也就是之前做过的项目（担任的角色，负责的部分）</li>
+<li>沟通能力，这一点能从沟通中就看出来</li>
+<li>主动性，之前主动推动的事物等等，哪怕是一个小的点也可以</li>
+<li>抗压能力，之前做过的项目中去挖掘细节</li>
+<li>技术宽度，了解不一定要深入，我一般会问一些比较泛的，比如多语言，Linux操作，HTTP协议等</li>
+</ol>
+<h3 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h3><ol>
+<li>有GitHub或者Blog</li>
+<li>离职原因和同事相处</li>
+<li>业余时间的兴趣爱好</li>
+<li>有没有做过开源项目</li>
+</ol>
+<h3 id="额外试题"><a href="#额外试题" class="headerlink" title="额外试题"></a>额外试题</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用php内置方法（最多2个），非循环,获取最大的key</span></div><div class="line">$a = <span class="keyword">array</span>(</div><div class="line">    <span class="string">'a'</span>=&gt;<span class="number">1</span>,</div><div class="line">    <span class="string">'b'</span>=&gt;<span class="number">3</span>, </div><div class="line">    <span class="string">'c'</span>=&gt;<span class="number">15</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 获取打印结果</span></div><div class="line"><span class="comment">//echo '1'. print(2)+3;</span></div></pre></td></tr></table></figure>
+<p>我自己面试而言，拥有基础要扎实，有较强的学习能力，并可以胜任这份工作的技术要求</p>
+<p>我也比较欣赏具备独立解决问题的能力、对常见事务和产品有自己的思考和看法的人。</p>
+<p>我一直觉得面试应该善于发现他所善长的东西。</p>
+<p>还有你得清楚你的项目具体需要哪些能力的人（比如在一个普通团队项目中，我非常看重一个人对一个需求解耦／框架／模式的理解，我可不愿意要一个进来把我的代码搞乱套的人）．而不是他知道多少晦涩的语法和他不曾知道的技巧．</p>
+<blockquote>
+<p>别出生僻的题，别为难人家，更不要变相的侮辱人家，正常交流为主，你要的是一个正常的人，优秀不优秀就看你的眼光和运气了。</p>
+<p>很多公司的技术人员招聘会刻意追求刺激的问题，比如很著名的微软的“下水道的盖子为什么是圆的”，不是说这些考察毫无道理，但更多的是一种“marketing”的手段。 </p>
+</blockquote>
+<p>好了，就写这么多了，面试是一个动态的过程，而且要在1-2个小时的时间内就考察出一个人的能力这基本上是不可能的，所以很多时候是否能够招聘到合适的人面试官的面试能力才是最重要的，特别是在公司时间和成本有限的情况下，面试官的一次面试就要做出是否招聘的决定的时候，面试官的面试能力就显得更重要。</p>
+<p>不过我个人还是觉得面试应该制定一个制度性的流程，通过几轮不同的人的面试来决定。</p>
+<p><abbr title="End of file">EOF</abbr></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/think/" rel="tag">#think</a>
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+            <a href="/tags/面试/" rel="tag">#面试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/21/diary/goout2/" rel="next" title="公司翻墙环境搭建">
+                <i class="fa fa-chevron-left"></i> 公司翻墙环境搭建
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/16/diary/swap/" rel="prev" title="Swap 内存交换">
+                Swap 内存交换 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试"><span class="nav-number">1.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本情况"><span class="nav-number">2.</span> <span class="nav-text">基本情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自我介绍"><span class="nav-number">2.1.</span> <span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应聘者的自我介绍"><span class="nav-number">2.2.</span> <span class="nav-text">应聘者的自我介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能力考察"><span class="nav-number">2.3.</span> <span class="nav-text">能力考察</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提问"><span class="nav-number">2.4.</span> <span class="nav-text">提问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#能力考察－专业知识"><span class="nav-number">3.</span> <span class="nav-text">能力考察－专业知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#技术线（偏深度）："><span class="nav-number">3.1.</span> <span class="nav-text">技术线（偏深度）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语言基础"><span class="nav-number">3.1.1.</span> <span class="nav-text">语言基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计模式"><span class="nav-number">3.1.2.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据知识"><span class="nav-number">3.1.3.</span> <span class="nav-text">数据知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识宽度"><span class="nav-number">3.1.4.</span> <span class="nav-text">知识宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目经验"><span class="nav-number">3.1.5.</span> <span class="nav-text">项目经验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计"><span class="nav-number">3.1.6.</span> <span class="nav-text">设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务线（偏能力）："><span class="nav-number">3.2.</span> <span class="nav-text">业务线（偏能力）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他："><span class="nav-number">3.3.</span> <span class="nav-text">其他：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#额外试题"><span class="nav-number">3.4.</span> <span class="nav-text">额外试题</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ifttt,etcd,think," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="本文构建包括ETCD,Recipes服务2块。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IFTTT之初步构建笔记（试用）">
+<meta property="og:url" content="http://rose1988c.github.io/2016/03/11/think/IFTTT-build/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="本文构建包括ETCD,Recipes服务2块。">
+<meta property="og:updated_time" content="2017-03-21T13:41:24.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IFTTT之初步构建笔记（试用）">
+<meta name="twitter:description" content="本文构建包括ETCD,Recipes服务2块。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> IFTTT之初步构建笔记（试用） | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                IFTTT之初步构建笔记（试用）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-11T04:07:17-05:00" content="2016-03-11">
+              2016-03-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文构建包括ETCD,Recipes服务2块。</p>
+<a id="more"></a>
+<h2 id="Etcd"><a href="#Etcd" class="headerlink" title="Etcd"></a>Etcd</h2><blockquote>
+<p>A highly-available key value store for shared configuration and service discovery.</p>
+<p>简单：基于HTTP+JSON的API让你用curl就可以轻松使用。<br>安全：可选SSL客户认证机制。<br>快速：每个实例每秒支持一千次写操作。<br>可信：使用Raft算法充分实现了分布式。</p>
+</blockquote>
+<p>在etcd系统中，我们可以存储两种类型的东西：keys和directors。<br>keys存储的是单个字符值，directors存储的是一组keys或者存储其他directors。</p>
+<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p><a href="https://github.com/coreos/etcd" target="_blank" rel="external">coreos/etcd</a></p>
+<ul>
+<li>启动</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./<span class="keyword">bin/etcd </span>-<span class="meta">data</span>-dir /tmp/etcd/ -name Test01</div></pre></td></tr></table></figure>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 整个系统的key</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/?recursive=<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment"># 插入一条K/V</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message1 -XPUT -d <span class="built_in">value</span>=<span class="string">'hello world'</span> | jq .</div><div class="line"></div><div class="line"><span class="comment"># 获取一条K/V</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message1 | jq .</div><div class="line"></div><div class="line"><span class="comment"># 用ctl获得K/V</span></div><div class="line">etcdctl <span class="built_in">get</span> message1</div><div class="line"></div><div class="line"><span class="comment"># 删除一条K/V</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message1 -XDELETE</div><div class="line"></div><div class="line"><span class="comment"># 插入一条K/V并设置过期时间为5秒</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message2 -XPUT -d <span class="built_in">value</span>=<span class="string">'hello etcd'</span> -d ttl=<span class="number">5</span> | jq .</div><div class="line"></div><div class="line"><span class="comment"># 监视key的变更</span></div><div class="line"><span class="comment"># 窗口1</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message2 -XPUT -d <span class="built_in">value</span>=<span class="string">'hello etcd 1'</span> | jq .</div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message2?<span class="built_in">wait</span>=<span class="literal">true</span> | jq .</div><div class="line"><span class="comment"># 窗口2</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message2 -XPUT -d <span class="built_in">value</span>=<span class="string">'hello etcd 2'</span> | jq .</div><div class="line"></div><div class="line"><span class="comment"># sorted key排序</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message3 -XPOST -d <span class="built_in">value</span>=<span class="string">'hello etcd 1'</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message4 -XPUT -d <span class="built_in">value</span>=<span class="string">'hello etcd 1'</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message5 -XPUT -d <span class="built_in">value</span>=<span class="string">'hello etcd 1'</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message3 -XPOST -d <span class="built_in">value</span>=<span class="string">'hello etcd 2'</span> | jq .</div><div class="line"><span class="comment">---</span></div><div class="line">curl -s <span class="string">'http://127.0.0.1:2379/v2/keys/message3?recursive=true&amp;sorted=true'</span></div><div class="line"></div><div class="line"><span class="comment"># 创建目录</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message7 -XPUT -d dir=<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment"># 删除目录</span></div><div class="line">curl -s <span class="string">'http://127.0.0.1:2379/v2/keys/message7?dir=true'</span> -XDELETE</div><div class="line">如果director里面已经包含<span class="built_in">keys</span>了，则必须增加recursive=<span class="literal">true</span>参数</div><div class="line">curl -s <span class="string">'http://127.0.0.1:2379/v2/keys/message7?recursive=true'</span> -XDELETE</div><div class="line"></div><div class="line"><span class="comment"># 在目录中创建key</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/message7/message_key -XPUT -d <span class="built_in">value</span>=<span class="string">'this is a key in directory'</span></div><div class="line"></div><div class="line"><span class="comment"># 创建一个隐藏的节点(隐藏key/隐藏directory)，我们创建一个隐藏key时使用'_'作为key的前缀即可，当你发送HTTP GET请求时，隐藏key并不会被显示出来</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/<span class="title">_message</span> -XPUT -d <span class="built_in">value</span>=<span class="string">'a hidden key'</span></div><div class="line"></div><div class="line"><span class="comment"># 存储一些小的配置文件、json文档、xml文档</span></div><div class="line">curl -s <span class="keyword">http</span>://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">2379</span>/v2/<span class="built_in">keys</span>/<span class="built_in">file</span> -XPUT <span class="comment">--data-urlencode value@upfile</span></div></pre></td></tr></table></figure>
+<h3 id="状态监控"><a href="#状态监控" class="headerlink" title="状态监控"></a>状态监控</h3><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># etcd会跟踪一些集群使用的统计信息，比如带宽、启动时间之类的。</span></div><div class="line">Leader Statistics：leader有查看整个etcd集群视图的能力，而且会跟踪两个有趣的统计信息：到集群中同等机器的延迟和rafr rpc请求失败和成功的数量。</div><div class="line">curl -s http:<span class="comment">//127.0.0.1:2379/v2/stats/leader</span></div><div class="line"></div><div class="line"><span class="meta"># Self Statistics：每个节点内部的统计信息</span></div><div class="line">curl -s http:<span class="comment">//127.0.0.1:2379/v2/stats/self</span></div><div class="line"></div><div class="line"><span class="meta"># Store Statistics：存储统计信息包含了在该节点上的所有操作信息</span></div><div class="line">curl -s http:<span class="comment">//127.0.0.1:2379/v2/stats/store</span></div><div class="line"></div><div class="line"><span class="meta"># 查询集群的配置</span></div><div class="line">curl -s http:<span class="comment">//0.0.0.0:2380/v2/admin/config</span></div><div class="line"></div><div class="line"><span class="meta"># 整个集群中有多少成员</span></div><div class="line">curl -s http:<span class="comment">//0.0.0.0:2380/v2/admin/machines</span></div><div class="line"></div><div class="line"><span class="meta">#在集群中删除TEST2节点</span></div><div class="line">curl -s http:<span class="comment">//0.0.0.0:2380/v2/admin/machines/TEST2 -XDELETE</span></div></pre></td></tr></table></figure>
+<h3 id="etcd节点的配置文件设置："><a href="#etcd节点的配置文件设置：" class="headerlink" title="etcd节点的配置文件设置："></a>etcd节点的配置文件设置：</h3><ul>
+<li>命令行</li>
+<li>环境变量</li>
+<li>配置文件</li>
+</ul>
+<p>配置文件方式，etcd默认从/etc/etcd/etcd.conf读取配置</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="attr">addr</span> = <span class="string">"127.0.0.1:2379"</span></div><div class="line"><span class="attr">bind_addr</span> = <span class="string">"127.0.0.1:2379"</span></div><div class="line"><span class="attr">ca_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">cert_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">cors</span> = []</div><div class="line"><span class="attr">cpu_profile_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">data_dir</span> = <span class="string">"."</span></div><div class="line"><span class="attr">discovery</span> = <span class="string">"http://etcd.local:2379/v2/keys/_etcd/registry/examplecluster"</span></div><div class="line"><span class="attr">http_read_timeout</span> = <span class="number">10.0</span></div><div class="line"><span class="attr">http_write_timeout</span> = <span class="number">10.0</span></div><div class="line"><span class="attr">key_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">peers</span> = []</div><div class="line"><span class="attr">peers_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">max_cluster_size</span> = <span class="number">9</span></div><div class="line"><span class="attr">max_result_buffer</span> = <span class="number">1024</span></div><div class="line"><span class="attr">max_retry_attempts</span> = <span class="number">3</span></div><div class="line"><span class="attr">name</span> = <span class="string">"default-name"</span></div><div class="line"><span class="attr">snapshot</span> = <span class="literal">true</span></div><div class="line"><span class="attr">verbose</span> = <span class="literal">false</span></div><div class="line"><span class="attr">very_verbose</span> = <span class="literal">false</span></div><div class="line"><span class="section"></span></div><div class="line">[peer]</div><div class="line"><span class="attr">addr</span> = <span class="string">"127.0.0.1:2380"</span></div><div class="line"><span class="attr">bind_addr</span> = <span class="string">"127.0.0.1:2380"</span></div><div class="line"><span class="attr">ca_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">cert_file</span> = <span class="string">""</span></div><div class="line"><span class="attr">key_file</span> = <span class="string">""</span></div><div class="line"><span class="section"></span></div><div class="line">[cluster]</div><div class="line"><span class="attr">active_size</span> = <span class="number">9</span></div><div class="line"><span class="attr">remove_delay</span> = <span class="number">1800.0</span></div><div class="line"><span class="attr">sync_interval</span> = <span class="number">5.0</span></div></pre></td></tr></table></figure>
+<p>命令行优先级最高，环境变量的又高于配置文件。</p>
+<ul>
+<li>命令参数</li>
+</ul>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">Options:</div><div class="line">  -<span class="ruby">-version         显示版本号</span></div><div class="line">  -<span class="ruby">f -force         强制使用新的配置文件</span></div><div class="line">  -<span class="ruby">config=&lt;path&gt;    指定配置文件的路径</span></div><div class="line">  -<span class="ruby">name=&lt;name&gt;      该节点在etcd集群中显示的名称</span></div><div class="line">  -<span class="ruby">data-dir=&lt;path&gt;  etcd数据的存储路径</span></div><div class="line">  -<span class="ruby">cors=&lt;origins&gt;   Comma-separated list of CORS origins.</span></div><div class="line">  -<span class="ruby">v                开启verbose logging.</span></div><div class="line">  -<span class="ruby">vv               开启very verbose logging.</span></div><div class="line"></div><div class="line">Cluster Configuration Options:</div><div class="line">  -<span class="ruby">discovery=&lt;url&gt;                Discovery service used to find a peer list.</span></div><div class="line">  -<span class="ruby">peers-file=&lt;path&gt;              包含节点信息的文件列表</span></div><div class="line">  -<span class="ruby">peers=&lt;<span class="symbol">host:</span>port&gt;,&lt;<span class="symbol">host:</span>port&gt;  逗号分割的节点列表，这些节点应该匹配节点的-peer-addr标记指定的信息</span></div><div class="line"></div><div class="line">Client Communication Options:</div><div class="line">  -<span class="ruby">addr=&lt;<span class="symbol">host:</span>port&gt;         客户端进行通讯的公共地址端口</span></div><div class="line">  -<span class="ruby">bind-addr=&lt;host[<span class="symbol">:port</span>]&gt;  监听的地址端口，用来进行客户端通讯</span></div><div class="line">  -<span class="ruby">ca-file=&lt;path&gt;           客户端CA文件路径</span></div><div class="line">  -<span class="ruby">cert-file=&lt;path&gt;         客户端cert文件路径</span></div><div class="line">  -<span class="ruby">key-file=&lt;path&gt;          客户端key文件路径</span></div><div class="line"></div><div class="line">Peer Communication Options:</div><div class="line">  -<span class="ruby">peer-addr=&lt;<span class="symbol">host:</span>port&gt;  节点间进行通讯的地址端口</span></div><div class="line">  -<span class="ruby">peer-bind-addr=&lt;host[<span class="symbol">:port</span>]&gt;  监听的地址端口，节点间来进行通讯</span></div><div class="line">  -<span class="ruby">peer-ca-file=&lt;path&gt;    节点CA文件路径</span></div><div class="line">  -<span class="ruby">peer-cert-file=&lt;path&gt;  节点cert文件路径</span></div><div class="line">  -<span class="ruby">peer-key-file=&lt;path&gt;   节点key文件路径</span></div><div class="line">  -<span class="ruby">peer-heartbeat-interval=&lt;time&gt; 心跳检测的时间间隔，单位是毫秒</span></div><div class="line">  -<span class="ruby">peer-election-timeout=&lt;time&gt; 节点选举的超时时间，单位是毫秒</span></div><div class="line"></div><div class="line">Other Options:</div><div class="line">  -<span class="ruby">max-result-buffer   结果缓冲区的最大值</span></div><div class="line">  -<span class="ruby">max-<span class="keyword">retry</span>-attempts  节点尝试重新加入集群的次数</span></div><div class="line">  -<span class="ruby"><span class="keyword">retry</span>-interval      Seconds to wait between cluster join <span class="keyword">retry</span> attempts.</span></div><div class="line">  -<span class="ruby">snapshot=<span class="literal">false</span>      禁止log快照</span></div><div class="line">  -<span class="ruby">snapshot-count      发布快照前执行的事物次数</span></div><div class="line">  -<span class="ruby">cluster-active-size 集群中的活跃节点数</span></div><div class="line">  -<span class="ruby">cluster-remove-delay 多少秒之后再删除集群中的节点</span></div><div class="line">  -<span class="ruby">cluster-sync-interval 在备模式下，两次同步之间的时间差</span></div></pre></td></tr></table></figure>
+<h3 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h3><p><a href="https://github.com/coreos/etcd/blob/master/Documentation/clustering.md" target="_blank" rel="external">1</a><br><a href="http://www.tuicool.com/articles/jAVnI3f" target="_blank" rel="external">2</a><br><a href="https://segmentfault.com/a/1190000003852735" target="_blank" rel="external">3</a></p>
+<p>唉，木有三台机器啊。。只能自身开多个端口来搞了。</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## cluster</div><div class="line"></div><div class="line">etcd --name infra0 --initial-advertise-peer-urls http://0.0.0.0:2380 \</div><div class="line">  -<span class="ruby">-listen-peer-urls <span class="symbol">http:</span>/<span class="regexp">/0.0.0.0:2380 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-listen-client-urls http:/</span><span class="regexp">/0.0.0.0:2379 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-advertise-client-urls http:/</span><span class="regexp">/0.0.0.0:2379 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster-token etcd-cluster-1 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster infra0=http:/</span><span class="regexp">/0.0.0.0:2380,infra1=http:/</span><span class="regexp">/0.0.0.0:2480,infra2=http:/</span><span class="regexp">/0.0.0.0:2580 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster-state new</span></span></div><div class="line"></div><div class="line">## peer</div><div class="line"></div><div class="line">  etcd --name infra1 --initial-advertise-peer-urls http://0.0.0.0:2480 \</div><div class="line">  -<span class="ruby"><span class="regexp">-listen-peer-urls http:/</span><span class="regexp">/0.0.0.0:2480 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-listen-client-urls http:/</span><span class="regexp">/0.0.0.0:2479 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-advertise-client-urls http:/</span><span class="regexp">/0.0.0.0:2479 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster-token etcd-cluster-1 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster infra0=http:/</span><span class="regexp">/0.0.0.0:2380,infra1=http:/</span><span class="regexp">/0.0.0.0:2480,infra2=http:/</span><span class="regexp">/0.0.0.0:2580 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster-state new</span></span></div><div class="line"></div><div class="line">## peer</div><div class="line"></div><div class="line">  etcd --name infra2 --initial-advertise-peer-urls http://0.0.0.0:2580 \</div><div class="line">  -<span class="ruby"><span class="regexp">-listen-peer-urls http:/</span><span class="regexp">/0.0.0.0:2580 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-listen-client-urls http:/</span><span class="regexp">/0.0.0.0:2579 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-advertise-client-urls http:/</span><span class="regexp">/0.0.0.0:2579 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster-token etcd-cluster-1 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster infra0=http:/</span><span class="regexp">/0.0.0.0:2380,infra1=http:/</span><span class="regexp">/0.0.0.0:2480,infra2=http:/</span><span class="regexp">/0.0.0.0:2580 \</span></span></div><div class="line">  -<span class="ruby"><span class="regexp">-initial-cluster-state new</span></span></div></pre></td></tr></table></figure>
+<p>没写完~</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ifttt/" rel="tag">#ifttt</a>
+          
+            <a href="/tags/etcd/" rel="tag">#etcd</a>
+          
+            <a href="/tags/think/" rel="tag">#think</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/22/language/http-diff-get-post/" rel="next" title="HTTP通讯中GET和POST区别">
+                <i class="fa fa-chevron-left"></i> HTTP通讯中GET和POST区别
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/31/think/monitor-think/" rel="prev" title="监控预警设想">
+                监控预警设想 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Etcd"><span class="nav-number">1.</span> <span class="nav-text">Etcd</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装"><span class="nav-number">1.1.</span> <span class="nav-text">1.安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-number">1.2.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态监控"><span class="nav-number">1.3.</span> <span class="nav-text">状态监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etcd节点的配置文件设置："><span class="nav-number">1.4.</span> <span class="nav-text">etcd节点的配置文件设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群搭建"><span class="nav-number">1.5.</span> <span class="nav-text">集群搭建</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

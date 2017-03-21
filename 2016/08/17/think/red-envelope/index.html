@@ -1,0 +1,751 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="think,红包," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="抢红包需求红包在我看来，作用在提升用户粘性，增加双方互动，提升用户存在感
+用户添加红包（金额，个数），要求最低金额为1元，最小单位为元，取消其他单位（角，分）
+微信红包算法
+红包里的金额怎么算？为什么出现各个红包金额相差很大？答：随机，额度在0.01和剩余平均值*2之间。
+例如：发100块钱，总共10个红包，那么平均值是10块钱一个，那么发出来的红包的额度在0.01元～20元之间波动。当前面3个红">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抢红包">
+<meta property="og:url" content="http://rose1988c.github.io/2016/08/17/think/red-envelope/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="抢红包需求红包在我看来，作用在提升用户粘性，增加双方互动，提升用户存在感
+用户添加红包（金额，个数），要求最低金额为1元，最小单位为元，取消其他单位（角，分）
+微信红包算法
+红包里的金额怎么算？为什么出现各个红包金额相差很大？答：随机，额度在0.01和剩余平均值*2之间。
+例如：发100块钱，总共10个红包，那么平均值是10块钱一个，那么发出来的红包的额度在0.01元～20元之间波动。当前面3个红">
+<meta property="og:updated_time" content="2017-03-21T13:41:24.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抢红包">
+<meta name="twitter:description" content="抢红包需求红包在我看来，作用在提升用户粘性，增加双方互动，提升用户存在感
+用户添加红包（金额，个数），要求最低金额为1元，最小单位为元，取消其他单位（角，分）
+微信红包算法
+红包里的金额怎么算？为什么出现各个红包金额相差很大？答：随机，额度在0.01和剩余平均值*2之间。
+例如：发100块钱，总共10个红包，那么平均值是10块钱一个，那么发出来的红包的额度在0.01元～20元之间波动。当前面3个红">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 抢红包 | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                抢红包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-17T06:00:41-04:00" content="2016-08-17">
+              2016-08-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="抢红包需求"><a href="#抢红包需求" class="headerlink" title="抢红包需求"></a>抢红包需求</h2><p>红包在我看来，作用在提升用户粘性，增加双方互动，提升用户存在感</p>
+<p>用户添加红包（金额，个数），要求最低金额为1元，最小单位为元，取消其他单位（角，分）</p>
+<h2 id="微信红包算法"><a href="#微信红包算法" class="headerlink" title="微信红包算法"></a>微信红包算法</h2><blockquote>
+<p>红包里的金额怎么算？为什么出现各个红包金额相差很大？<br>答：随机，额度在0.01和剩余平均值*2之间。</p>
+<p>例如：发100块钱，总共10个红包，那么平均值是10块钱一个，那么发出来的红包的额度在0.01元～20元之间波动。<br>当前面3个红包总共被领了40块钱时，剩下60块钱，总共7个红包，那么这7个红包的额度在：0.01～（60/7*2）=17.14之间。<br>注意：这里的算法是每被抢一个后，剩下的会再次执行上面的这样的算法</p>
+<p>这样算下去，会超过最开始的全部金额，因此到了最后面如果不够这么算，那么会采取如下算法：保证剩余用户能拿到最低1分钱即可。</p>
+<p>如果前面的人手气不好，那么后面的余额越多，红包额度也就越多，因此实际概率一样的。</p>
+</blockquote>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">不知道哪里流出的</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> getRandomMoney(RedPackage _redPackage) &#123;</div><div class="line">    <span class="comment">// remainSize 剩余的红包数量</span></div><div class="line">    <span class="comment">// remainMoney 剩余的钱</span></div><div class="line">    <span class="keyword">if</span> (_redPackage.remainSize == <span class="number">1</span>) &#123;</div><div class="line">        _redPackage.remainSize--;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">double</span>) Math.<span class="built_in">round</span>(_redPackage.remainMoney * <span class="number">100</span>) / <span class="number">100</span>;</div><div class="line">    &#125;</div><div class="line">    Random r     = <span class="keyword">new</span> Random();</div><div class="line">    <span class="keyword">double</span> <span class="built_in">min</span>   = <span class="number">0.01</span>; <span class="comment">//</span></div><div class="line">    <span class="keyword">double</span> <span class="built_in">max</span>   = _redPackage.remainMoney / _redPackage.remainSize * <span class="number">2</span>;</div><div class="line">    <span class="keyword">double</span> money = r.nextDouble() * <span class="built_in">max</span>;</div><div class="line">    money = money &lt;= <span class="built_in">min</span> ? <span class="number">0.01</span>: money;</div><div class="line">    money = Math.<span class="built_in">floor</span>(money * <span class="number">100</span>) / <span class="number">100</span>;</div><div class="line">    _redPackage.remainSize--;</div><div class="line">    _redPackage.remainMoney -= money;</div><div class="line">    <span class="keyword">return</span> money;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>微信的金额什么时候算？</p>
+<p>答：微信金额是拆的时候实时算出来，不是预先分配的，采用的是纯内存计算，不需要预算空间存储。<br>采取实时计算金额的考虑：预算需要占存储，实时效率很高，预算才效率低。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="按需求红包设计"><a href="#按需求红包设计" class="headerlink" title="按需求红包设计"></a>按需求红包设计</h2><ol>
+<li>随机，额度在1和剩余平均值*2之间（随机值如果是边界值，排除重新计算或者预留1）</li>
+<li>这里不采用微信机制实时计算，红包先预先算法算好生成</li>
+</ol>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  +-------------+      +-------------+</div><div class="line">  |<span class="string">             </span>|<span class="string">      </span>|<span class="string">             </span>|</div><div class="line">  |<span class="string">    Ios      </span>|<span class="string">      </span>|<span class="string">   Android   </span>|</div><div class="line">  |<span class="string">             </span>|<span class="string">      </span>|<span class="string">             </span>|</div><div class="line">  +-------------+---+--+-------------+</div><div class="line">                    |<span class="string"></span></div><div class="line">                    |</div><div class="line">       +------------+-------------+</div><div class="line">       |<span class="string">                          </span>|</div><div class="line">+------v--------+        +--------v---------+</div><div class="line">|<span class="string">               </span>|<span class="string">        </span>|<span class="string">                  </span>|</div><div class="line">|<span class="string">  RedEnvelope  </span>|<span class="string">        </span>|<span class="string">     GateWay      </span>|</div><div class="line">|<span class="string">               </span>|<span class="string">        </span>|<span class="string">                  </span>|</div><div class="line">+---------------+        +---------+--------+</div><div class="line">                                   |<span class="string"></span></div><div class="line">                         +---------v--------+</div><div class="line">                         |<span class="string">                  </span>|</div><div class="line">                         |<span class="string">     Logic        </span>|</div><div class="line">                         |<span class="string">                  </span>|</div><div class="line">                         +------------------+</div></pre></td></tr></table></figure>
+<p>用户创建红包，向 <code>GateWay</code> 发送请求，并转发到 ｀Logic｀</p>
+<p>用户抢红包，向 <code>RedEnvelope</code> 发送请求，并告知抢红包结果</p>
+<h2 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h2><p>id, title, size, monkey,</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://coderroc.com/" target="_blank" rel="external">参考1</a></p>
+<p><abbr title="End of file">EOF</abbr></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/think/" rel="tag">#think</a>
+          
+            <a href="/tags/红包/" rel="tag">#红包</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/16/diary/router-fx-k2/" rel="next" title="斐讯K2 刷入bread／华硕固件 科学上网">
+                <i class="fa fa-chevron-left"></i> 斐讯K2 刷入bread／华硕固件 科学上网
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/21/diary/goout2/" rel="prev" title="公司翻墙环境搭建">
+                公司翻墙环境搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#抢红包需求"><span class="nav-number">1.</span> <span class="nav-text">抢红包需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信红包算法"><span class="nav-number">2.</span> <span class="nav-text">微信红包算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需求红包设计"><span class="nav-number">3.</span> <span class="nav-text">按需求红包设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表设计"><span class="nav-number">4.</span> <span class="nav-text">表设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

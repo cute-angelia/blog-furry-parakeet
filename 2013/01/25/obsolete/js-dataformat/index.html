@@ -1,0 +1,719 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="updated: Moment.js时间类
+此JS文件是格式化JS中日期时间的工具类，其中包含了传入日期对象Date，格式化成想要的格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js-dataformat">
+<meta property="og:url" content="http://rose1988c.github.io/2013/01/25/obsolete/js-dataformat/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="updated: Moment.js时间类
+此JS文件是格式化JS中日期时间的工具类，其中包含了传入日期对象Date，格式化成想要的格式">
+<meta property="og:updated_time" content="2013-01-29T05:49:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js-dataformat">
+<meta name="twitter:description" content="updated: Moment.js时间类
+此JS文件是格式化JS中日期时间的工具类，其中包含了传入日期对象Date，格式化成想要的格式">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> js-dataformat | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                js-dataformat
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-01-25T04:52:33-05:00" content="2013-01-25">
+              2013-01-25
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>updated: <a href="http://blog.atchen.com/blog/2013/01/29/moment-js/" target="_blank" rel="external">Moment.js时间类</a></p>
+<p>此JS文件是格式化JS中日期时间的工具类，其中包含了传入日期对象Date，格式化成想要的格式</p>
+<a id="more"></a>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"> * 此JS文件是格式化JS中日期时间的工具类，其中包含了传入日期对象Date，格式化成想要的格式，&lt;br&gt; </div><div class="line"> * 或者传入字符串格式的时间个，次字符串日期对应的格式可以转换为相应的日期对象，&lt;br&gt; </div><div class="line"> * 可以计算两个日期之间的差值 </div><div class="line"> *  </div><div class="line"> * y: 表示年 </div><div class="line"> * M：表示一年中的月份 1~12 </div><div class="line"> * d: 表示月份中的天数 1~31 </div><div class="line"> * H：表示一天中的小时数 00~23 </div><div class="line"> * m: 表示小时中的分钟数 00~59 </div><div class="line"> * s: 表示分钟中的秒数   00~59 </div><div class="line"> */  </div><div class="line">    </div><div class="line"><span class="built_in">var</span> DateFormat = <span class="function"><span class="keyword">function</span>(<span class="params">bDebug</span>)</span>&#123;  </div><div class="line">    <span class="keyword">this</span>.isDebug = bDebug || <span class="literal">false</span>;  </div><div class="line">    <span class="keyword">this</span>.curDate = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line"> &#125;  </div><div class="line">   </div><div class="line">DateFormat.prototype = &#123;  </div><div class="line">    <span class="comment">//定义一些常用的日期格式的常量   </span></div><div class="line">    <span class="attribute">DEFAULT_DATE_FORMAT</span>: <span class="string">'yyyy-MM-dd'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_MONTH_FORMAT</span>: <span class="string">'yyyy-MM'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_YEAR_FORMAT</span>: <span class="string">'yyyy'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_TIME_FORMAT</span>: <span class="string">'HH:mm:ss'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_DATETIME_FORMAT</span>: <span class="string">'yyyy-MM-dd HH:mm:ss'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_YEAR</span>: <span class="string">'YEAR'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_MONTH</span>: <span class="string">'MONTH'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_DATE</span>: <span class="string">'DATE'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_HOUR</span>: <span class="string">'HOUR'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_MINUTE</span>: <span class="string">'MINUTE'</span>,  </div><div class="line">    <span class="attribute">DEFAULT_SECOND</span>: <span class="string">'SECOND'</span>,  </div><div class="line">  </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 根据给定的日期时间格式，格式化当前日期 </div><div class="line">     * @params strFormat 格式化字符串， 如："yyyy-MM-dd" 默认格式为：“yyyy-MM-dd HH:mm:ss” </div><div class="line">     * @return 返回根据给定格式的字符串表示的时间日期格式&lt;br&gt; </div><div class="line">     *         如果传入不合法的格式，则返回日期的字符串格式&#123;@see Date#toLocaleString()&#125; </div><div class="line">     */  </div><div class="line">     <span class="attribute">formatCurrentDate</span>: <span class="function"><span class="keyword">function</span>(<span class="params">strFormat</span>)</span>&#123;  </div><div class="line">       <span class="title">try</span>&#123;  </div><div class="line">            <span class="built_in">var</span> tempFormat = strFormat == <span class="literal">undefined</span>? <span class="attribute">this.DEFAULT_DATETIME_FORMAT</span>: strFormat;  </div><div class="line">            <span class="built_in">var</span> dates = <span class="keyword">this</span>.getDateObject(<span class="keyword">this</span>.curDate);  </div><div class="line">            <span class="keyword">if</span>(<span class="regexp">/(y+)/</span>.test(tempFormat))&#123;  </div><div class="line">                <span class="built_in">var</span> fullYear = <span class="keyword">this</span>.curDate.getFullYear() + <span class="string">''</span>;  </div><div class="line">                <span class="built_in">var</span> year = <span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">4</span>? <span class="attribute">fullYear</span>: fullYear.substr(<span class="number">4</span> - <span class="built_in">RegExp</span>.$<span class="number">1.</span>length);  </div><div class="line">                tempFormat = tempFormat.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, year);  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">for</span>(<span class="built_in">var</span> i <span class="keyword">in</span> dates)&#123;  </div><div class="line">                <span class="keyword">if</span>(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'('</span> + i + <span class="string">')'</span>).test(tempFormat))&#123;  </div><div class="line">                    <span class="built_in">var</span> target = <span class="built_in">RegExp</span>.$<span class="number">1.</span>length == <span class="number">1</span>? dates[i]: (<span class="string">'0'</span> + dates[i]).substr((<span class="string">''</span> + dates[i]).length - <span class="number">1</span>);  </div><div class="line">                    tempFormat = tempFormat.replace(<span class="built_in">RegExp</span>.$<span class="number">1</span>, target);  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">return</span> tempFormat === strFormat? <span class="keyword">this</span>.curDate.toLocaleString(): tempFormat;  </div><div class="line">        &#125;<span class="keyword">catch</span>(e)&#123;  </div><div class="line">          <span class="keyword">this</span>.debug(<span class="string">'格式化日期出现异常：'</span> + e.message);  </div><div class="line">        &#125;  </div><div class="line">    &#125;,  </div><div class="line">  </div><div class="line">      </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 根据给定的格式，把给定的时间进行格式化 </div><div class="line">     * @params date 要格式化的日期 </div><div class="line">     * @params strFormat 要得到的日期的格式的格式化字符串，如：'yyyy-MM-dd'，默认：yyyy-MM-dd HH:mm:ss </div><div class="line">     * @return 根据规定格式的时间格式 </div><div class="line">     *   </div><div class="line">     * @updateDate 2011-09-15 </div><div class="line">     */  </div><div class="line">    <span class="attribute">format</span>: <span class="function"><span class="keyword">function</span>(<span class="params">date, strFormat</span>)</span>&#123;  </div><div class="line">        <span class="title">try</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(<span class="built_in">date</span> == <span class="literal">undefined</span>)&#123;  </div><div class="line">                <span class="keyword">this</span>.curDate = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!(<span class="built_in">date</span> <span class="keyword">instanceof</span> <span class="built_in">Date</span>))&#123;  </div><div class="line">                <span class="keyword">this</span>.debug(<span class="string">'你输入的date:'</span> + <span class="built_in">date</span> + <span class="string">'不是日期类型'</span>);  </div><div class="line">                <span class="keyword">return</span> <span class="built_in">date</span>;  </div><div class="line">            &#125;<span class="title">else</span>&#123;  </div><div class="line">                <span class="keyword">this</span>.curDate = <span class="built_in">date</span>;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.formatCurrentDate(strFormat);  </div><div class="line">        &#125;<span class="keyword">catch</span>(e)&#123;  </div><div class="line">            <span class="keyword">this</span>.debug(<span class="string">'格式化日期出现异常：'</span> + e.message);  </div><div class="line">        &#125;  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 根据给定的格式对给定的字符串日期时间进行解析， </div><div class="line">     * @params strDate 要解析的日期的字符串表示,此参数只能是字符串形式的日期，否则返回当期系统日期 </div><div class="line">     * @params strFormat 解析给定日期的顺序, 如果输入的strDate的格式为&#123;Date.parse()&#125;方法支持的格式，&lt;br&gt; </div><div class="line">     *         则可以不传入，否则一定要传入与strDate对应的格式, 若不传入格式则返回当期系统日期。 </div><div class="line">     * @return 返回解析后的Date类型的时间&lt;br&gt; </div><div class="line">     *        若不能解析则返回当前日期&lt;br&gt; </div><div class="line">     *        若给定为时间格式 则返回的日期为 1970年1月1日的日期 </div><div class="line">     * </div><div class="line">     * bug: 此方法目前只能实现类似'yyyy-MM-dd'格式的日期的转换，&lt;br&gt; </div><div class="line">     *       而'yyyyMMdd'形式的日期，则不能实现 </div><div class="line">     */  </div><div class="line">       </div><div class="line">    <span class="attribute">parseDate</span>: <span class="function"><span class="keyword">function</span>(<span class="params">strDate, strFormat</span>)</span>&#123;  </div><div class="line">       <span class="keyword">if</span>(<span class="keyword">typeof</span> strDate != <span class="string">'string'</span>)&#123;  </div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">       &#125;  </div><div class="line">      <span class="built_in">var</span> longTime = <span class="built_in">Date</span>.parse(strDate);  </div><div class="line">      <span class="keyword">if</span>(<span class="built_in">isNaN</span>(longTime))&#123;  </div><div class="line">          <span class="keyword">if</span>(strFormat == <span class="literal">undefined</span>)&#123;  </div><div class="line">              <span class="keyword">this</span>.debug(<span class="string">'请输入日期的格式'</span>);  </div><div class="line">             <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">          &#125;  </div><div class="line">          <span class="built_in">var</span> tmpDate = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">          <span class="built_in">var</span> regFormat = <span class="regexp">/(\w&#123;4&#125;)|(\w&#123;2&#125;)|(\w&#123;1&#125;)/g</span>;  </div><div class="line">          <span class="built_in">var</span> regDate = <span class="regexp">/(\d&#123;4&#125;)|(\d&#123;2&#125;)|(\d&#123;1&#125;)/g</span>;  </div><div class="line">          <span class="built_in">var</span> formats = strFormat.match(regFormat);  </div><div class="line">          <span class="built_in">var</span> dates = strDate.match(regDate);  </div><div class="line">          <span class="keyword">if</span>( formats != <span class="literal">undefined</span> &amp;&amp;  dates != <span class="literal">undefined</span> &amp;&amp; formats.length == dates.length)&#123;  </div><div class="line">            <span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span>; i &lt; formats.length; i++)&#123;  </div><div class="line">              <span class="built_in">var</span> format = formats[i];  </div><div class="line">              <span class="keyword">if</span>(format === <span class="string">'yyyy'</span>)&#123;  </div><div class="line">                tmpDate.setFullYear(<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>));  </div><div class="line">              &#125;<span class="keyword">else</span> <span class="keyword">if</span>(format == <span class="string">'yy'</span>)&#123;  </div><div class="line">                <span class="built_in">var</span> prefix = (tmpDate.getFullYear() + <span class="string">''</span>).substring(<span class="number">0</span>, <span class="number">2</span>);  </div><div class="line">                <span class="built_in">var</span> year = (<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>) + <span class="string">''</span>).length == <span class="number">4</span>? <span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>): prefix + (<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>) + <span class="string">'00'</span>).substring(<span class="number">0</span>, <span class="number">2</span>);  </div><div class="line">                <span class="built_in">var</span> tmpYear = <span class="built_in">parseInt</span>(year, <span class="number">10</span>);  </div><div class="line">                tmpDate.setFullYear(tmpYear);  </div><div class="line">              &#125;<span class="keyword">else</span> <span class="keyword">if</span>(format == <span class="string">'MM'</span> || format == <span class="string">'M'</span>)&#123;  </div><div class="line">                tmpDate.setMonth(<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>) - <span class="number">1</span>);  </div><div class="line">              &#125;<span class="keyword">else</span> <span class="keyword">if</span>(format == <span class="string">'dd'</span> || format == <span class="string">'d'</span>)&#123;  </div><div class="line">                tmpDate.setDate(<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>));  </div><div class="line">              &#125;<span class="keyword">else</span> <span class="keyword">if</span>(format == <span class="string">'HH'</span> || format == <span class="string">'H'</span>)&#123;  </div><div class="line">                tmpDate.setHours(<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>));  </div><div class="line">              &#125;<span class="keyword">else</span> <span class="keyword">if</span>(format == <span class="string">'mm'</span> || format == <span class="string">'m'</span>)&#123;  </div><div class="line">                tmpDate.setMinutes(<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>));  </div><div class="line">              &#125;<span class="keyword">else</span> <span class="keyword">if</span>(format == <span class="string">'ss'</span> || format == <span class="string">'s'</span>)&#123;  </div><div class="line">                tmpDate.setSeconds(<span class="built_in">parseInt</span>(dates[i], <span class="number">10</span>));  </div><div class="line">              &#125;  </div><div class="line">            &#125;  </div><div class="line">           <span class="keyword">return</span> tmpDate;  </div><div class="line">         &#125;  </div><div class="line">          <span class="keyword">return</span> tmpDate;  </div><div class="line">        &#125;<span class="title">else</span>&#123;  </div><div class="line">          <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(longTime);  </div><div class="line">        &#125;  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">      </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 根据给定的时间间隔类型及间隔值，以给定的格式对给定的时间进行计算并格式化返回 </div><div class="line">     * @params date 要操作的日期时间可以为时间的字符串或者&#123;@see Date&#125;类似的时间对象， </div><div class="line">     * @params interval 时间间隔类型如："YEAR"、"MONTH"、 "DATE", 不区分大小写 </div><div class="line">     * @params amount 时间间隔值，可以正数和负数, 负数为在date的日期减去相应的数值，正数为在date的日期上加上相应的数值 </div><div class="line">     * @params strFormat 当输入端的date的格式为字符串是，此项必须输入。若date参数为&#123;@see Date&#125;类型是此项会作为最终输出的格式。 </div><div class="line">     * @params targetFormat 最终输出的日期时间的格式，若没有输入则使用strFormat或者默认格式'yyyy-MM-dd HH:mm:ss' </div><div class="line">     * @return 返回计算并格式化后的时间的字符串 </div><div class="line">     */  </div><div class="line">    <span class="attribute">changeDate</span>: <span class="function"><span class="keyword">function</span>(<span class="params">date, interval, amount, strFormat, targetFormat</span>)</span>&#123;  </div><div class="line">        <span class="built_in">var</span> tmpdate = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">        <span class="keyword">if</span>(<span class="built_in">date</span> == <span class="literal">undefined</span>)&#123;  </div><div class="line">           <span class="keyword">this</span>.debug(<span class="string">'输入的时间不能为空!'</span>);  </div><div class="line">           <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">date</span> == <span class="string">'string'</span>)&#123;  </div><div class="line">            tmpdate = <span class="keyword">this</span>.parseDate(<span class="built_in">date</span>, strFormat);  </div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">date</span> <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;  </div><div class="line">          tmpdate = <span class="built_in">date</span>;  </div><div class="line">        &#125;  </div><div class="line">        <span class="built_in">var</span> field  =  (<span class="keyword">typeof</span> interval == <span class="string">'string'</span>)? interval.toUpperCase(): <span class="string">'DATE'</span>;  </div><div class="line">          </div><div class="line">        <span class="title">try</span>&#123;  </div><div class="line">          amount = <span class="built_in">parseInt</span>(amount + <span class="string">''</span>, <span class="number">10</span>);  </div><div class="line">          <span class="keyword">if</span>(<span class="built_in">isNaN</span>(amount))&#123;  </div><div class="line">             amount = <span class="number">0</span>;  </div><div class="line">          &#125;  </div><div class="line">        &#125;<span class="keyword">catch</span>(e)&#123;  </div><div class="line">           <span class="keyword">this</span>.debug(<span class="string">'你输入的[amount='</span> + amount + <span class="string">']不能转换为整数'</span>);  </div><div class="line">           amount = <span class="number">0</span>;  </div><div class="line">        &#125;  </div><div class="line">        <span class="keyword">switch</span>(field)&#123;  </div><div class="line">           <span class="keyword">case</span> <span class="attribute">this.DEFAULT_YEAR</span>:  </div><div class="line">             tmpdate.setFullYear(tmpdate.getFullYear() + amount);  </div><div class="line">             <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> <span class="attribute">this.DEFAULT_MONTH</span>:  </div><div class="line">             tmpdate.setMonth(tmpdate.getMonth() + amount);  </div><div class="line">             <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> <span class="attribute">this.DEFAULT_DATE</span>:  </div><div class="line">             tmpdate.setDate(tmpdate.getDate() + amount);  </div><div class="line">             <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> <span class="attribute">this.DEFAULT_HOUR</span>:  </div><div class="line">             tmpdate.setHours(tmpdate.getHours() + amount);  </div><div class="line">             <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> <span class="attribute">this.DEFAULT_MINUTE</span>:  </div><div class="line">             tmpdate.setMinutes(tmpdate.getMinutes() + amount);  </div><div class="line">             <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> <span class="attribute">this.DEFAULT_SECOND</span>:  </div><div class="line">              tmpdate.setSeconds(tmpdate.getSeconds() + amount);  </div><div class="line">             <span class="keyword">break</span>;  </div><div class="line">           <span class="attribute">default</span>:  </div><div class="line">              <span class="keyword">this</span>.debug(<span class="string">'你输入的[interval:'</span> + field + <span class="string">'] 不符合条件!'</span>);          </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        <span class="keyword">this</span>.curDate = tmpdate;  </div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.formatCurrentDate(targetFormat == <span class="literal">undefined</span>? <span class="attribute">strFormat</span>: targetFormat);  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 比较两个日期的差距 </div><div class="line">     * @param date1 Date类型的时间 </div><div class="line">     * @param date2 Dete 类型的时间 </div><div class="line">     * @param isFormat boolean 是否对得出的时间进行格式化,&lt;br&gt;  </div><div class="line">     *       false:返回毫秒数，true：返回格式化后的数据 </div><div class="line">     * @return 返回两个日期之间的毫秒数 或者是格式化后的结果 </div><div class="line">     */  </div><div class="line">    <span class="attribute">compareTo</span>: <span class="function"><span class="keyword">function</span>(<span class="params">date1, date2, isFormat</span>)</span>&#123;  </div><div class="line">      <span class="title">try</span>&#123;  </div><div class="line">            <span class="built_in">var</span> len = <span class="built_in">arguments</span>.length;  </div><div class="line">            <span class="built_in">var</span> tmpdate1 = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">            <span class="built_in">var</span> tmpdate2 = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">            <span class="keyword">if</span>(len == <span class="number">1</span>)&#123;  </div><div class="line">               tmpdate1 = date1;  </div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(len &gt;= <span class="number">2</span>)&#123;  </div><div class="line">              tmpdate1 = date1;  </div><div class="line">              tmpdate2 = date2;  </div><div class="line">            &#125;  </div><div class="line">        <span class="keyword">if</span>(!(tmpdate1 <span class="keyword">instanceof</span> <span class="built_in">Date</span>) || !(tmpdate2 <span class="keyword">instanceof</span> <span class="built_in">Date</span>))&#123;  </div><div class="line">           <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">        &#125;<span class="title">else</span>&#123;  </div><div class="line">            <span class="built_in">var</span> time1 = tmpdate1.getTime();   </div><div class="line">            <span class="built_in">var</span> time2 = tmpdate2.getTime();  </div><div class="line">            <span class="built_in">var</span> time = <span class="built_in">Math</span>.max(time1, time2) - <span class="built_in">Math</span>.min(time1, time2);  </div><div class="line">            <span class="keyword">if</span>(!<span class="built_in">isNaN</span>(time) &amp;&amp; time &gt; <span class="number">0</span>)&#123;  </div><div class="line">               <span class="keyword">if</span>(isFormat)&#123;  </div><div class="line">                  <span class="built_in">var</span> <span class="built_in">date</span> = <span class="keyword">new</span> <span class="built_in">Date</span>(time);  </div><div class="line">                  <span class="built_in">var</span> result = &#123;&#125;;  </div><div class="line">                  result[<span class="string">'year'</span>]   = (<span class="built_in">date</span>.getFullYear() - <span class="number">1970</span>) &gt; <span class="number">0</span>? (<span class="built_in">date</span>.getFullYear() - <span class="number">1970</span>): <span class="string">'0'</span>;  </div><div class="line">                  result[<span class="string">'month'</span>]  = (<span class="built_in">date</span>.getMonth() - <span class="number">1</span>) &gt; <span class="number">0</span>? (<span class="built_in">date</span>.getMonth() - <span class="number">1</span>): <span class="string">'0'</span>;  </div><div class="line">                  result[<span class="string">'day'</span>]    = (<span class="built_in">date</span>.getDate() - <span class="number">1</span>) &gt; <span class="number">0</span>? (<span class="built_in">date</span>.getDate() - <span class="number">1</span>): <span class="string">'0'</span>;  </div><div class="line">                  result[<span class="string">'hour'</span>]   = (<span class="built_in">date</span>.getHours() - <span class="number">8</span>) &gt; <span class="number">0</span>? (<span class="built_in">date</span>.getHours() - <span class="number">1</span>): <span class="string">'0'</span>;  </div><div class="line">                  result[<span class="string">'minute'</span>] = <span class="built_in">date</span>.getMinutes() &gt; <span class="number">0</span>? <span class="built_in">date</span>.getMinutes(): <span class="string">'0'</span>;  </div><div class="line">                  result[<span class="string">'second'</span>] = <span class="built_in">date</span>.getSeconds() &gt; <span class="number">0</span>? <span class="built_in">date</span>.getSeconds(): <span class="string">'0'</span>;  </div><div class="line">                  <span class="keyword">return</span> result;  </div><div class="line">                &#125;<span class="title">else</span> &#123;  </div><div class="line">                 <span class="keyword">return</span> time;  </div><div class="line">                &#125;  </div><div class="line">            &#125;<span class="title">else</span>&#123;  </div><div class="line">              <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">      &#125;<span class="keyword">catch</span>(e)&#123;  </div><div class="line">        <span class="keyword">this</span>.debug(<span class="string">'比较时间出现异常'</span> + e.message);  </div><div class="line">      &#125;  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="comment">/** </span></div><div class="line">     * 根据给定的日期得到日期的月，日，时，分和秒的对象 </div><div class="line">     * @params date 给定的日期 date为非Date类型， 则获取当前日期 </div><div class="line">     * @return 有给定日期的月、日、时、分和秒组成的对象 </div><div class="line">     */  </div><div class="line">    <span class="attribute">getDateObject</span>: <span class="function"><span class="keyword">function</span>(<span class="params">date</span>)</span>&#123;  </div><div class="line">         <span class="keyword">if</span>(!(<span class="built_in">date</span> <span class="keyword">instanceof</span> <span class="built_in">Date</span>))&#123;  </div><div class="line">           <span class="built_in">date</span> = <span class="keyword">new</span> <span class="built_in">Date</span>();  </div><div class="line">         &#125;  </div><div class="line">        <span class="keyword">return</span> &#123;  </div><div class="line">            <span class="string">'M+'</span> : <span class="built_in">date</span>.getMonth() + <span class="number">1</span>,   </div><div class="line">            <span class="string">'d+'</span> : <span class="built_in">date</span>.getDate(),     </div><div class="line">            <span class="string">'H+'</span> : <span class="built_in">date</span>.getHours(),     </div><div class="line">            <span class="string">'m+'</span> : <span class="built_in">date</span>.getMinutes(),   </div><div class="line">            <span class="string">'s+'</span> : <span class="built_in">date</span>.getSeconds()  </div><div class="line">         &#125;;  </div><div class="line">    &#125;,  </div><div class="line">      </div><div class="line">    <span class="comment">/** </span></div><div class="line">     *在控制台输出日志 </div><div class="line">     *@params message 要输出的日志信息 </div><div class="line">     */  </div><div class="line">    <span class="attribute">debug</span>: <span class="function"><span class="keyword">function</span>(<span class="params">message</span>)</span>&#123;  </div><div class="line">       <span class="title">try</span>&#123;  </div><div class="line">           <span class="keyword">if</span>(!<span class="keyword">this</span>.isDebug)&#123;  </div><div class="line">             <span class="keyword">return</span>;  </div><div class="line">           &#125;  </div><div class="line">           <span class="keyword">if</span>(!<span class="built_in">window</span>.console)&#123;  </div><div class="line">               <span class="built_in">window</span>.console = &#123;&#125;;  </div><div class="line">               <span class="built_in">window</span>.console.log = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">                  <span class="keyword">return</span>;  </div><div class="line">               &#125;  </div><div class="line">           &#125;  </div><div class="line">           <span class="built_in">window</span>.console.log(message + <span class="string">' '</span>);  </div><div class="line">       &#125;<span class="keyword">catch</span>(e)&#123;  </div><div class="line">       &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/01/18/obsolete/the-cloud-disks/" rel="next" title="Dropbox见解">
+                <i class="fa fa-chevron-left"></i> Dropbox见解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/01/29/think/long-long-way-to-go/" rel="prev" title="漫长的道路">
+                漫长的道路 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

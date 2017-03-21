@@ -1,0 +1,789 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="study,mongo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="mongo 笔记123show dbsuse mydb# db.dropDatabase()
+mongodump备份数据库
+常用命令格
+
+1mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径
+
+如果没有用户谁，可以去掉-u和-p。  如果导出本机的数据库，可以去掉-h。  如果是默认端口，可以去掉–port。  如果想导出所有数据库，可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb">
+<meta property="og:url" content="http://rose1988c.github.io/2014/03/20/language/mongo-study/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="mongo 笔记123show dbsuse mydb# db.dropDatabase()
+mongodump备份数据库
+常用命令格
+
+1mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径
+
+如果没有用户谁，可以去掉-u和-p。  如果导出本机的数据库，可以去掉-h。  如果是默认端口，可以去掉–port。  如果想导出所有数据库，可以">
+<meta property="og:updated_time" content="2017-03-21T13:41:24.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb">
+<meta name="twitter:description" content="mongo 笔记123show dbsuse mydb# db.dropDatabase()
+mongodump备份数据库
+常用命令格
+
+1mongodump -h IP --port 端口 -u 用户名 -p 密码 -d 数据库 -o 文件存在路径
+
+如果没有用户谁，可以去掉-u和-p。  如果导出本机的数据库，可以去掉-h。  如果是默认端口，可以去掉–port。  如果想导出所有数据库，可以">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> mongodb | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                mongodb
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-03-20T01:25:21-04:00" content="2014-03-20">
+              2014-03-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="mongo-笔记"><a href="#mongo-笔记" class="headerlink" title="mongo 笔记"></a>mongo 笔记</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> dbs</div><div class="line"><span class="keyword">use</span> mydb</div><div class="line"><span class="meta"># db.dropDatabase()</span></div></pre></td></tr></table></figure>
+<h3 id="mongodump备份数据库"><a href="#mongodump备份数据库" class="headerlink" title="mongodump备份数据库"></a>mongodump备份数据库</h3><ol>
+<li>常用命令格</li>
+</ol>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump -h IP --port 端口 -u 用户名 -<span class="selector-tag">p</span> 密码 -d 数据库 -o 文件存在路径</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果没有用户谁，可以去掉-u和-p。<br>  如果导出本机的数据库，可以去掉-h。<br>  如果是默认端口，可以去掉–port。<br>  如果想导出所有数据库，可以去掉-d。</p>
+</blockquote>
+<ol>
+<li>导出所有数据库</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump -h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -o /tmp/mongodb/</div></pre></td></tr></table></figure>
+<ol>
+<li>导出指定数据库</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodump -h <span class="number">192.168</span><span class="number">.1</span><span class="number">.108</span> -d tank -o /tmp/mongodb/</div></pre></td></tr></table></figure>
+<h3 id="mongorestore还原数据库"><a href="#mongorestore还原数据库" class="headerlink" title="mongorestore还原数据库"></a>mongorestore还原数据库</h3><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mongorestore</span> <span class="literal">-</span><span class="comment">h</span> <span class="comment">IP</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">port</span> <span class="comment">端口</span> <span class="literal">-</span><span class="comment">u</span> <span class="comment">用户名</span> <span class="literal">-</span><span class="comment">p</span> <span class="comment">密码</span> <span class="literal">-</span><span class="comment">d</span> <span class="comment">数据库</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">drop</span> <span class="comment">文件存在路径</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>–drop的意思是，先删除所有的记录，然后恢复。</p>
+</blockquote>
+<p>恢复所有数据库到mongodb中</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongorestore <span class="regexp">/tmp/mongodb/</span>   <span class="comment">#这里的路径是所有库的备份路径</span></div></pre></td></tr></table></figure>
+<p>还原指定的数据库</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mongorestore -d tank <span class="regexp">/tmp/m</span>ongodb<span class="regexp">/tank/</span>    <span class="comment">#tank这个数据库的备份路径</span></div><div class="line">mongorestore -d tank_new  <span class="regexp">/tmp/m</span>ongodb<span class="regexp">/tank/</span>    <span class="comment">#将tank还有tank_new数据库中</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>这二个命令，可以实现数据库的备份与还原，文件格式是json和bson的。无法指写到表备份或者还原。</p>
+</blockquote>
+<h3 id="mongoexport导出表，或者表中部分字段"><a href="#mongoexport导出表，或者表中部分字段" class="headerlink" title="mongoexport导出表，或者表中部分字段"></a>mongoexport导出表，或者表中部分字段</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoexport -h IP --port 端口 -u 用户名 -<span class="selector-tag">p</span> 密码 -d 数据库 -c 表名 -f 字段 -<span class="selector-tag">q</span> 条件导出 --csv -o 文件名</div></pre></td></tr></table></figure>
+<blockquote>
+<p>-f 导出指字段，以字号分割，-f name,email,age导出name,email,age这三个字段<br>  -q 可以根查询条件导出，-q ‘{ “uid” : “100” }’ 导出uid为100的数据<br>  –csv 表示导出的文件格式为csv的，这个比较有用，因为大部分的关系型数据库都是支持csv，在这里有共同点</p>
+</blockquote>
+<p>导出整张表</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoexport -d tank -c users -o <span class="regexp">/tmp/m</span>ongodb<span class="regexp">/tank/u</span>sers.dat</div></pre></td></tr></table></figure>
+<p>导出表中部分字段</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoexport <span class="_">-d</span> tank -c users --csv <span class="_">-f</span> uid,name,sex -o tank/users.csv</div></pre></td></tr></table></figure>
+<p>根据条件导出数据</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">mongoexport</span> -d tank -c users -q <span class="string">'&#123;uid:&#123;<span class="variable">$gt</span>:1&#125;&#125;'</span> -o tank/users.json</div></pre></td></tr></table></figure>
+<h3 id="mongoimport导入表，或者表中部分字段"><a href="#mongoimport导入表，或者表中部分字段" class="headerlink" title="mongoimport导入表，或者表中部分字段"></a>mongoimport导入表，或者表中部分字段</h3><p>还原整表导出的非csv文件</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mongoimport</span> <span class="literal">-</span><span class="comment">h</span> <span class="comment">IP</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">port</span> <span class="comment">端口</span> <span class="literal">-</span><span class="comment">u</span> <span class="comment">用户名</span> <span class="literal">-</span><span class="comment">p</span> <span class="comment">密码</span> <span class="literal">-</span><span class="comment">d</span> <span class="comment">数据库</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">表名</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">upsert</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">drop</span> <span class="comment">文件名</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>重点说一下–upsert，其他参数上面的命令已有提到，–upsert 插入或者更新现有数据</p>
+</blockquote>
+<p>还原部分字段的导出文件</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mongoimport</span> <span class="literal">-</span><span class="comment">h</span> <span class="comment">IP</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">port</span> <span class="comment">端口</span> <span class="literal">-</span><span class="comment">u</span> <span class="comment">用户名</span> <span class="literal">-</span><span class="comment">p</span> <span class="comment">密码</span> <span class="literal">-</span><span class="comment">d</span> <span class="comment">数据库</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">表名</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">upsertFields</span> <span class="comment">字段</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">drop</span> <span class="comment">文件名</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>–upsertFields根–upsert一样</p>
+</blockquote>
+<p>还原导出的csv文件</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mongoimport</span> <span class="literal">-</span><span class="comment">h</span> <span class="comment">IP</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">port</span> <span class="comment">端口</span> <span class="literal">-</span><span class="comment">u</span> <span class="comment">用户名</span> <span class="literal">-</span><span class="comment">p</span> <span class="comment">密码</span> <span class="literal">-</span><span class="comment">d</span> <span class="comment">数据库</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">表名</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">type</span> <span class="comment">类型</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">headerline</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">upsert</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">drop</span> <span class="comment">文件名</span></div></pre></td></tr></table></figure>
+<p>还原导出的表数据</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoimport -d tank -c users <span class="comment">--upsert tank/users.dat</span></div></pre></td></tr></table></figure>
+<p>部分字段的表数据导入</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongoimport -d tank -c users  <span class="comment">--upsertFields uid,name,sex  tank/users.dat</span></div></pre></td></tr></table></figure>
+<p>还原csv文件</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">mongoimport</span> <span class="literal">-</span><span class="comment">d</span> <span class="comment">tank</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">users</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">type</span> <span class="comment">csv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">headerline</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">file</span> <span class="comment">tank/users</span><span class="string">.</span><span class="comment">csv</span></div></pre></td></tr></table></figure>
+<p><abbr title="End of file">EOF</abbr></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag">#study</a>
+          
+            <a href="/tags/mongo/" rel="tag">#mongo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/03/20/obsolete/composer/" rel="next" title="PHP 开发者该知道的5个 Composer 小技巧">
+                <i class="fa fa-chevron-left"></i> PHP 开发者该知道的5个 Composer 小技巧
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/03/20/language/php-psr2/" rel="prev" title="php-psr2">
+                php-psr2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongo-笔记"><span class="nav-number">1.</span> <span class="nav-text">mongo 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodump备份数据库"><span class="nav-number">1.1.</span> <span class="nav-text">mongodump备份数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongorestore还原数据库"><span class="nav-number">1.2.</span> <span class="nav-text">mongorestore还原数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongoexport导出表，或者表中部分字段"><span class="nav-number">1.3.</span> <span class="nav-text">mongoexport导出表，或者表中部分字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongoimport导入表，或者表中部分字段"><span class="nav-number">1.4.</span> <span class="nav-text">mongoimport导入表，或者表中部分字段</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

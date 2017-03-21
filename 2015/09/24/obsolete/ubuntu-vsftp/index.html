@@ -1,0 +1,737 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="build,ftp,ubuntu," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="目标* 多用户
+* 权限控制在制定目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu VSFTP">
+<meta property="og:url" content="http://rose1988c.github.io/2015/09/24/obsolete/ubuntu-vsftp/index.html">
+<meta property="og:site_name" content="鸢飞无羁">
+<meta property="og:description" content="目标* 多用户
+* 权限控制在制定目录">
+<meta property="og:updated_time" content="2017-03-21T13:41:24.939Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu VSFTP">
+<meta name="twitter:description" content="目标* 多用户
+* 权限控制在制定目录">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Ubuntu VSFTP | 鸢飞无羁 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">鸢飞无羁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">是什么让风筝维持自由，是线，还是风，还是人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link/" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            链接
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ubuntu VSFTP
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-24T00:37:15-04:00" content="2015-09-24">
+              2015-09-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><pre><code>* 多用户
+* 权限控制在制定目录
+</code></pre><a id="more"></a>
+<h2 id="vsftp-探坑"><a href="#vsftp-探坑" class="headerlink" title="vsftp 探坑"></a>vsftp 探坑</h2><p>  安装：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install vsftpd</div></pre></td></tr></table></figure>
+<p>  配置：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># When "listen" directive is enabled, vsftpd runs in standalone mode and</span></div><div class="line"><span class="comment"># listens on IPv4 sockets. This directive cannot be used in conjunction</span></div><div class="line"><span class="comment"># with the listen_ipv6 directive.</span></div><div class="line"><span class="comment"># 设定该vsftpd服务工作在 StandAlone 模式下。</span></div><div class="line"><span class="comment"># 顺便展开说明一下，所谓 StandAlone 模式就是该服务拥有自己的守护进程支持，</span></div><div class="line"><span class="comment"># 在ps -A命令下我们将可用看到vsftpd的守护进程名。</span></div><div class="line"><span class="comment"># 如果不想工作在StandAlone模式下，则可以选择SuperDaemon模式，</span></div><div class="line"><span class="comment"># 在该模式下 vsftpd 将没有自己的守护进程，而是由超级守护进程 xinetd 全权代理，</span></div><div class="line"><span class="comment"># 与此同时，vsftp服务的许多功能将得不到实现。</span></div><div class="line"><span class="attr">listen</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment">#默认FTP服务器端口号是21，出于安全目的，有时需修改默认端口号</span></div><div class="line"><span class="attr">listen_port</span>=<span class="number">18881</span></div><div class="line"></div><div class="line"><span class="comment"># 只监听来访问192.168.1.100(适用本机多网卡、多IP的情况)的FTP服务请求</span></div><div class="line"><span class="comment">#listen_address=192.168.1.100</span></div><div class="line"></div><div class="line"><span class="comment"># Allow anonymous FTP? (Beware - allowed by default if you comment this out).</span></div><div class="line"><span class="comment"># 设定不允许匿名访问</span></div><div class="line"><span class="attr">anonymous_enable</span>=<span class="literal">NO</span></div><div class="line"></div><div class="line"><span class="comment"># Uncomment this to allow local users to log in.</span></div><div class="line"><span class="comment"># 设定本地用户可以访问。</span></div><div class="line"><span class="comment"># 注意：主要是为虚拟宿主用户，如果该项目设定为NO那么所有虚拟用户将无法访问</span></div><div class="line"><span class="attr">local_enable</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># Uncomment this to enable any form of FTP write command.</span></div><div class="line"><span class="comment"># 设定可以进行写操作</span></div><div class="line"><span class="attr">write_enable</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># Default umask for local users is 077. You may wish to change this to 022,</span></div><div class="line"><span class="comment"># if your users expect that (022 is used by most other ftpd's)</span></div><div class="line"><span class="comment"># 设定上传后文件的权限掩码</span></div><div class="line"><span class="attr">local_umask</span>=<span class="number">022</span></div><div class="line"></div><div class="line"><span class="comment"># Uncomment this to allow the anonymous FTP user to upload files. This only</span></div><div class="line"><span class="comment"># has an effect if the above global write enable is activated. Also, you will</span></div><div class="line"><span class="comment"># obviously need to create a directory writable by the FTP user.</span></div><div class="line"><span class="comment"># 禁止匿名用户上传</span></div><div class="line"><span class="attr">anon_upload_enable</span>=<span class="literal">NO</span></div><div class="line"></div><div class="line"><span class="comment"># Uncomment this if you want the anonymous FTP user to be able to create</span></div><div class="line"><span class="comment"># new directories.</span></div><div class="line"><span class="comment"># 禁止匿名用户建立目录</span></div><div class="line"><span class="attr">anon_mkdir_write_enable</span>=<span class="literal">NO</span></div><div class="line"></div><div class="line"><span class="comment"># Activate directory messages - messages given to remote users when they</span></div><div class="line"><span class="comment"># go into a certain directory.</span></div><div class="line"><span class="comment"># 设定开启目录标语功能</span></div><div class="line"><span class="attr">dirmessage_enable</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># Activate logging of uploads/downloads.</span></div><div class="line"><span class="comment"># 表明FTP服务器记录上传下载的情况</span></div><div class="line"><span class="comment"># 设定开启 wu-ftp 服务器格式记录功能</span></div><div class="line"><span class="attr">xferlog_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">xferlog_file</span>=/var/log/xferlog</div><div class="line"></div><div class="line"><span class="comment"># You may override where the log file goes if you like. The default is shown below.</span></div><div class="line"><span class="comment"># vsftpd_log_file所指定的文件，即/var/log/vsftpd.log也将用来记录服务器的传输情况</span></div><div class="line"><span class="comment"># 设定 vsftpd 的服务日志保存路径。</span></div><div class="line"><span class="comment"># 注意，该文件默认不存在。必须要手动touch出来，</span></div><div class="line"><span class="comment"># 并且由于这里更改了vsftpd的服务宿主用户为手动建立的vsftpd。</span></div><div class="line"><span class="comment"># 必须注意给与该用户对日志的写入权限，否则服务将启动失败。</span></div><div class="line"><span class="attr">dual_log_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">vsftpd_log_file</span>=/var/log/vsftpd.log</div><div class="line"></div><div class="line"><span class="comment"># 是否将原本输出到/var/log/vsftpd.log中的日志，输出到系统日志</span></div><div class="line"><span class="comment"># syslog_enable</span></div><div class="line"></div><div class="line"><span class="comment"># Make sure PORT transfer connections originate from port 20 (ftp-data).</span></div><div class="line"><span class="comment"># 设定端口20进行数据连接</span></div><div class="line"><span class="attr">connect_from_port_20</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># If you want, you can arrange for uploaded anonymous files to be owned by</span></div><div class="line"><span class="comment"># a different user. Note! Using "root" for uploaded files is not</span></div><div class="line"><span class="comment"># recommended!</span></div><div class="line"><span class="comment"># 设定禁止上传文件更改属主</span></div><div class="line"><span class="attr">chown_uploads</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">chown_username</span>=root</div><div class="line"></div><div class="line"><span class="comment"># If you want, you can have your log file in standard ftpd xferlog format</span></div><div class="line"><span class="comment"># 设定日志使用标准的记录格式。</span></div><div class="line"><span class="attr">xferlog_std_format</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># You may change the default value for timing out an idle session.</span></div><div class="line"><span class="comment"># 设定空闲连接超时时间，这里使用默认。</span></div><div class="line"><span class="comment"># 将具体数值留给每个具体用户具体指定，当然如果不指定的话，还是使用这里的默认值600，单位秒。</span></div><div class="line"><span class="attr">idle_session_timeout</span>=<span class="number">600</span></div><div class="line"></div><div class="line"><span class="comment"># You may change the default value for timing out a data connection.</span></div><div class="line"><span class="comment"># 设定单次最大连续传输时间，这里使用默认。</span></div><div class="line"><span class="comment"># 将具体数值留给每个具体用户具体指定，当然如果不指定的话，还是使用这里的默认值120，单位秒。</span></div><div class="line"><span class="comment">#data_connection_timeout=120</span></div><div class="line"></div><div class="line"><span class="comment"># It is recommended that you define on your system a unique user which the</span></div><div class="line"><span class="comment"># ftp server can use as a totally isolated and unprivileged user.</span></div><div class="line"><span class="comment"># 设定支撑vsftpd服务的宿主用户为手动建立的vsftpd用户。</span></div><div class="line"><span class="comment"># 注意，一旦做出更改宿主用户后，必须注意一起与该服务相关的读写文件的读写赋权问题。</span></div><div class="line"><span class="comment"># 比如日志文件就必须给与该用户写入权限等。</span></div><div class="line"><span class="attr">nopriv_user</span>=ftp</div><div class="line"></div><div class="line"><span class="comment"># Enable this and the server will recognise asynchronous ABOR requests. Not</span></div><div class="line"><span class="comment"># recommended for security (the code is non-trivial). Not enabling it,</span></div><div class="line"><span class="comment"># however, may confuse older FTP clients.</span></div><div class="line"><span class="comment"># 是否识别异步ABOR请求</span></div><div class="line"><span class="comment"># 如果FTP client会下达“async ABOR”这个指令时，这个设定才需要启用</span></div><div class="line"><span class="comment"># 而一般此设定并不安全，所以通常将其取消</span></div><div class="line"><span class="comment">#async_abor_enable=YES</span></div><div class="line"></div><div class="line"><span class="comment"># By default the server will pretend to allow ASCII mode but in fact ignore</span></div><div class="line"><span class="comment"># the request. Turn on the below options to have the server actually do ASCII</span></div><div class="line"><span class="comment"># mangling on files when in ASCII mode.</span></div><div class="line"><span class="comment"># Beware that on some FTP servers, ASCII support allows a denial of service</span></div><div class="line"><span class="comment"># attack (DoS) via the command "SIZE /big/file" in ASCII mode. vsftpd</span></div><div class="line"><span class="comment"># predicted this attack and has always been safe, reporting the size of the</span></div><div class="line"><span class="comment"># raw file.</span></div><div class="line"><span class="comment"># ASCII mangling is a horrible feature of the protocol.</span></div><div class="line"><span class="comment"># 是否以ASCII方式传输数据。默认情况下，服务器会忽略ASCII方式的请求</span></div><div class="line"><span class="comment"># 启用此选项将允许服务器以ASCII方式传输数据</span></div><div class="line"><span class="comment"># 不过，这样可能会导致由"SIZE /big/file"方式引起的DoS攻击</span></div><div class="line"><span class="comment">#ascii_upload_enable=YES</span></div><div class="line"><span class="comment">#ascii_download_enable=YES</span></div><div class="line"></div><div class="line"><span class="comment"># You may fully customise the login banner string:</span></div><div class="line"><span class="comment"># 设定ftp的登陆标语。</span></div><div class="line"><span class="attr">ftpd_banner</span>=Welcome to login the FTP server ^_^</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># You may specify a file of disallowed anonymous e-mail addresses. Apparently</span></div><div class="line"><span class="comment"># useful for combatting certain DoS attacks.</span></div><div class="line"><span class="comment">#deny_email_enable=YES</span></div><div class="line"><span class="comment"># (default follows)</span></div><div class="line"><span class="comment">#banned_email_file=/etc/vsftpd/banned_emails</span></div><div class="line"></div><div class="line"><span class="comment"># You may specify an explicit list of local users to chroot() to their home</span></div><div class="line"><span class="comment"># directory. If chroot_local_user is YES, then this list becomes a list of</span></div><div class="line"><span class="comment"># users to NOT chroot().</span></div><div class="line"><span class="comment"># 将使用者限制在自己的家目录之内</span></div><div class="line"><span class="attr">chroot_local_user</span>=<span class="literal">YES</span></div><div class="line"><span class="comment"># 启用不被 chroot 的使用者账号(如果 chroot_local_user=NO 目的相反)</span></div><div class="line"><span class="attr">chroot_list_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="comment"># 不被 chroot 的使用者账号的列表文件</span></div><div class="line"><span class="attr">chroot_list_file</span>=/etc/vsftpd/chroot_list ## is empty file</div><div class="line"></div><div class="line"><span class="comment"># You may activate the "-R" option to the builtin ls. This is disabled by</span></div><div class="line"><span class="comment"># default to avoid remote users being able to cause excessive I/O on large</span></div><div class="line"><span class="comment"># sites. However, some broken FTP clients such as "ncftp" and "mirror" assume</span></div><div class="line"><span class="comment"># the presence of the "-R" option, so there is a strong case for enabling it.</span></div><div class="line"><span class="comment"># 是否允许递归查询。默认为关闭，以防止远程用户造成过量的I/O</span></div><div class="line"><span class="attr">ls_recurse_enable</span>=<span class="literal">NO</span></div><div class="line"></div><div class="line"><span class="comment"># This directive enables listening on IPv6 sockets. To listen on IPv4 and IPv6</span></div><div class="line"><span class="comment"># sockets, you must run two copies of vsftpd whith two configuration files.</span></div><div class="line"><span class="comment"># Make sure, that one of the listen options is commented !!</span></div><div class="line"><span class="comment"># 设定是否支持IPV6。如要同时监听IPv4和IPv6端口</span></div><div class="line"><span class="comment"># 则必须运行两套vsftpd，采用两套配置文件</span></div><div class="line"><span class="comment"># 同时确保其中有一个监听选项是被注释掉的</span></div><div class="line"><span class="comment">#listen_ipv6=YES</span></div><div class="line"></div><div class="line"><span class="comment"># 以下这些是关于vsftpd虚拟用户支持的重要配置项目。</span></div><div class="line"><span class="comment"># 默认 vsftpd.conf 中不包含这些设定项目，需要自己手动添加配置。</span></div><div class="line"></div><div class="line"><span class="comment"># 设定启用虚拟用户功能。</span></div><div class="line"><span class="attr">guest_enable</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># 指定虚拟用户的属主用户。</span></div><div class="line"><span class="attr">guest_username</span>=ftp168</div><div class="line"></div><div class="line"><span class="comment"># 设定虚拟用户的权限符合他们的属主用户。</span></div><div class="line"><span class="attr">virtual_use_local_privs</span>=<span class="literal">YES</span></div><div class="line"></div><div class="line"><span class="comment"># 设定虚拟用户个人vsftp的配置文件存放路径。</span></div><div class="line"><span class="comment"># 也就是说，这个被指定的目录里，将存放每个Vsftp虚拟用户个性的配置文件，</span></div><div class="line"><span class="comment"># 一个需要注意的地方就是这些配置文件名必须和虚拟用户名相同。</span></div><div class="line"><span class="attr">user_config_dir</span>=/etc/vsftpd/vusers_conf ## is dir for user</div><div class="line"></div><div class="line"><span class="comment"># 设定PAM服务下vsftpd的验证配置文件名。</span></div><div class="line"><span class="comment"># 因此，PAM验证将参考/etc/pam.d/下的vsftpd文件配置。</span></div><div class="line"><span class="attr">pam_service_name</span>=ftp</div><div class="line"><span class="comment">#pam_service_name=/etc/pam.d/vsftpd</span></div><div class="line"></div><div class="line"><span class="comment"># 设定userlist_file中的用户将不得使用FTP</span></div><div class="line"><span class="attr">userlist_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">userlist_deny</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">userlist_file</span>=/etc/vsftpd/user_list  ## is file empty</div><div class="line"></div><div class="line"><span class="comment"># The following entries are added for supporting virtual ftp users.</span></div><div class="line"><span class="comment"># 是否使用tcp_wrappers作为主机访问控制方式</span></div><div class="line"><span class="comment"># 可以实现linux系统中网络服务的基于主机地址的访问控制</span></div><div class="line"><span class="comment"># /etc/hosts.allow控制可以访问本机的IP地址</span></div><div class="line"><span class="comment"># /etc/hosts.deny控制禁止访问本机的IP</span></div><div class="line"><span class="comment"># 如果两个文件的配置有冲突，以/etc/hosts.deny为准。</span></div><div class="line"><span class="attr">tcp_wrappers</span>=<span class="literal">YES</span></div></pre></td></tr></table></figure>
+<pre><code>用户配置：
+</code></pre><ul>
+<li>只读模式</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="attr">local_root</span>=/var/ftpvuser/vuser_name</div><div class="line"><span class="attr">anonymous_enable</span>=<span class="literal">NO</span></div><div class="line"><span class="attr">write_enable</span>=<span class="literal">NO</span></div><div class="line"><span class="attr">local_umask</span>=<span class="number">022</span></div><div class="line"><span class="attr">anon_upload_enable</span>=<span class="literal">NO</span></div><div class="line"><span class="attr">anon_mkdir_write_enable</span>=<span class="literal">NO</span></div><div class="line"><span class="comment">#idle_session_timeout=300</span></div><div class="line"><span class="comment">#data_connection_timeout=90</span></div><div class="line"><span class="comment">#max_clients=6</span></div><div class="line"><span class="comment">#max_per_ip=6</span></div><div class="line"><span class="comment">#local_max_rate=25000</span></div></pre></td></tr></table></figure>
+<ul>
+<li>读写模式</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attr">local_root</span>=/var/ftpvuser/vuser_name</div><div class="line"><span class="attr">write_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">anon_umask</span>=<span class="number">022</span></div><div class="line"><span class="attr">anon_world_readable_only</span>=<span class="literal">NO</span></div><div class="line"><span class="attr">anon_upload_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">anon_mkdir_write_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="attr">anon_other_write_enable</span>=<span class="literal">YES</span></div><div class="line"><span class="comment">#idle_session_timeout=30</span></div><div class="line"><span class="comment">#data_connection_timeout=30</span></div><div class="line"><span class="comment">#max_clients=6</span></div><div class="line"><span class="comment">#max_per_ip=6</span></div><div class="line"><span class="comment">#local_max_rate=25000</span></div></pre></td></tr></table></figure>
+<p><abbr title="End of file">EOF</abbr></p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/build/" rel="tag">#build</a>
+          
+            <a href="/tags/ftp/" rel="tag">#ftp</a>
+          
+            <a href="/tags/ubuntu/" rel="tag">#ubuntu</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/07/obsolete/lumen-redis/" rel="next" title="在Lumen使用Redis">
+                <i class="fa fa-chevron-left"></i> 在Lumen使用Redis
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/04/lnmp/docker-install/" rel="prev" title="CentOS7 安装 Docker">
+                CentOS7 安装 Docker <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="陈韵文" />
+          <p class="site-author-name" itemprop="name">陈韵文</p>
+          <p class="site-description motion-element" itemprop="description">互联网 | 前后端 | 创造 | 坚持</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/">
+              <span class="site-state-item-count">70</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rose1988c" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://git.oschina.net/vanillan" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> oschina
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/349252963" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/gu-chang-feng" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://chenyunwen.cn" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> about
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vsftp-探坑"><span class="nav-number">2.</span> <span class="nav-text">vsftp 探坑</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈韵文</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script src="https://s4.cnzz.com/z_stat.php?id=1260492671&web_id=1260492671" language="JavaScript"></script>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
