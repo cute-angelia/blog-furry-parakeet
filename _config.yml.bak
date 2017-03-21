@@ -12,7 +12,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://rose1988c.github.io
+url: http://www.chenyunwen.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -70,7 +70,7 @@ social:
   oschina: http://git.oschina.net/vanillan
   weibo: http://weibo.com/349252963
   zhihu: http://www.zhihu.com/people/gu-chang-feng
-  about: http://chenyunwen.cn
+  about: http://www.chenyunwen.cn
 since: 2013
 #duoshuo_shortname: chenyunwen
 #disqus_shortname: rose1988c
