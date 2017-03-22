@@ -34,3 +34,9 @@ chmod +x shadowsocks-libev.sh
 重启：/etc/init.d/shadowsocks restart
 查看状态：/etc/init.d/shadowsocks status
 ````
+
+
+### 其他
+
+[锐速](https://www.91yun.org/serverspeeder91yun)
+bbr
