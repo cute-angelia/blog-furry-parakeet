@@ -1,0 +1,14 @@
+title: telegram bot
+date: 2017-03-24 22:27:22
+tags: [telegram]
+---
+
+telegram 提供了强大的 bot 功能. 
+
+telegram目前支持群组(group)和频道(channel)，群组人人都可以发言，频道对订阅者是只读
+
+增加一个机器人, @BotFather 要一个机器人
+
+机器人发消息有2个重要的 id, 一个是 group 的 chat_id,一个 channel 的name
+
+![go](/uploads/go-telegram.png)
