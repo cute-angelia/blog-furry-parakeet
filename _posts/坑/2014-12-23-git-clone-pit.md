@@ -1,6 +1,7 @@
+---
 title: git_clone_problem
 date: 2014-12-23 21:37:19
-tags: [github, 坑, pit]
+tags: [坑]
 ---
 
 ### git clone problem

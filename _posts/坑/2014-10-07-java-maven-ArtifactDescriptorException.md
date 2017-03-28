@@ -1,6 +1,7 @@
+---
 title: java-maven
 date: 2014-10-07 22:43:17
-tags: [java, maven]
+tags: [java]
 ---
 
 ## 配置 pom.xml 搭建项目

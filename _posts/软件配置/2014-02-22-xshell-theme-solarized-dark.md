@@ -1,6 +1,7 @@
+---
 title: Xshell主题Solarized Dark
 date: 2014-02-22 22:42:44
-tags: [xshell, theme]
+tags: [config]
 ---
 
 ## 自定义Xshell颜色主题Color Schemes

@@ -1,6 +1,7 @@
+---
 title: bracket-responsive-bootstrap-3-admin-template
 date: 2014-10-27 04:31:49
-tags: [bootstrap, theme]
+tags: [theme]
 ---
 
 <div class="user-html"><h3 id="item-description__some-of-the-skins-in-version-1-5">SOME OF THE SKINS IN VERSION 1.5</h3>
