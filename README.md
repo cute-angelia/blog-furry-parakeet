@@ -13,6 +13,7 @@ npm install hexo-deployer-git --save
 npm install
 ````
 
+
 ### update hexo
 
 ````
