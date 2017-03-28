@@ -1,11 +1,10 @@
-pygments: "true"
 permalink: "/:year/:month/:day/:title.html"
-name: "Season"
+name: "鸢飞无羁"
 root: ""
 
-author: "cyw"
-atom-baseurl: "https://i.chenyunwen.cn"
-disqus: "atchenreview"
+author: "陈韵文"
+atom-baseurl: "https://www.chenyunwen.cn"
+disqus: "rose1988c"
 
 navigations:
   - title: "Archive"

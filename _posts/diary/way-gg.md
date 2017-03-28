@@ -1,0 +1,5 @@
+title: 域名甩卖
+date: 2016-12-03 10:38:45
+---
+
+甩卖一个 `way.gg` 域名 [way.gg](http://way.gg)
