@@ -1,7 +1,7 @@
 ---
 title: 当下面试官
 date: 2016-10-10 18:00:41
-tags: [review]
+tags: [diary]
 ---
 
 ## 面试
