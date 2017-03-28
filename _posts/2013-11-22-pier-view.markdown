@@ -1,0 +1,22 @@
+---
+title: 憧憬
+layout: post
+tags:
+  - think
+---
+
+
+![Pier View]({{ site.root }}/media/img/illustration/scenery.jpg)
+
+
+### 我们向往的目的地是什么？
+
+- 每当看到码头的时候
+
+- 总有些冲动可以随风而去
+
+- 憧憬了很多地方
+
+- 慢慢地，我还停留在原地
+
+- 何不先离开呢

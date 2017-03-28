@@ -1,0 +1,22 @@
+---
+title: Tension
+layout: post
+tags:
+  - think
+---
+
+
+![Pier View]({{ site.root }}/media/img/illustration/tension.jpg)
+
+
+### 压力产生的焦虑？
+
+- 压力慢慢产生焦虑
+
+- 对于未知的事情，感觉到总是空白
+
+- 对于此，我只能自我放松自我调节
+
+- 想想你觉得未知的事情，先将最坏的打算排出来
+
+- 它这么坏了，你还要怕什么呢？

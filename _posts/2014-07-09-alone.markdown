@@ -1,0 +1,28 @@
+---
+title: Alone
+layout: post
+tags:
+  - think
+---
+
+
+![read]({{ site.root }}/media/img/illustration/read.jpeg)
+
+
+### alone
+
+- 独自一个人
+
+- 你打算如何消除孤寂感？
+
+- 我想大概都会找一件事，或者多件事
+
+- 时间在那个时候，根本不像流水，像宁静的大海，起一个波澜都得废好大的劲
+
+- 这个时间段出现在我多年前的暑假
+
+- 独自一个人在房间，静静地看书
+
+---
+
+I hope you find it！

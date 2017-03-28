@@ -1,0 +1,28 @@
+---
+title: Hope
+layout: post
+tags:
+  - think
+---
+
+
+![hope]({{ site.root }}/media/img/illustration/hope.jpg)
+
+
+### 希望
+
+- 静心
+
+- 你马上想到的是什么？
+
+- 也许很远，也许很近
+
+- 希望并不是遥不可及的
+
+- 它就在你面前，而你却只能看着远去
+
+- 如果想到，请马上伸手抓住它
+
+---
+
+I hope you find it！
