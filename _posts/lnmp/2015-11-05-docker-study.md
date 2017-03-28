@@ -1,6 +1,7 @@
+---
 title: Docker Study Note
 date: 2015-11-05 22:44:31
-tags: [docker, build]
+tags: [docker]
 ---
 
 ## Docker

@@ -1,6 +1,7 @@
+---
 title: php-codeigniter-with-404
 date: 2014-11-13 22:50:17
-tags: [codeigniter]
+tags: [ci]
 ---
 
 ## Codeigniter 404 error page, routing issue

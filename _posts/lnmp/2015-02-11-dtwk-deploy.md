@@ -1,6 +1,7 @@
+---
 title: DTWK部署笔记
 date: 2015-02-11 04:03:30
-tags: [dtwk, note]
+tags: [dtwk]
 ---
 
 ## 搭建环境

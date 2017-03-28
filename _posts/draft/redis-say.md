@@ -1,3 +1,4 @@
+---
 title: 统一管理N个redis配置PHP类
 date: 2015-06-19 05:07:17
 tags: [redis, note]

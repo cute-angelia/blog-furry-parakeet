@@ -1,6 +1,7 @@
+---
 title: PHP的抽象类、接口的区别和选择
 date: 2014-12-24 21:27:45
-tags: [interface, study]
+tags: [php]
 ---
 
 ## 区别：

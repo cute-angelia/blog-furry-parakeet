@@ -1,6 +1,7 @@
+---
 title: 全自动部署hexo
 date: 2016-01-29 05:07:17
-tags: [hexo, pm2, note]
+tags: [hexo]
 ---
 
 全自动？ test -> done

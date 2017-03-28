@@ -1,7 +1,8 @@
+---
 title: 在CentOS搭建环境笔记
 date: 2015-07-08 04:02:17
 update: 2015-11-05 04:02:17
-tags: [centos, php, nginx, web, mysql, build]
+tags: [linux]
 ---
 
 ## 搭建环境

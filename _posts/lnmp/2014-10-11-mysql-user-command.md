@@ -1,6 +1,7 @@
+---
 title: mysql-user-command
 date: 2014-10-11 01:33:06
-tags: [mysql, study]
+tags: [mysql]
 ---
 
 ## 创建用户

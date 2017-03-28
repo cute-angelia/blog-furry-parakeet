@@ -1,6 +1,7 @@
+---
 title: PHP 位计算
 date: 2016-07-01 10:38:45
-tags: [php, think]
+tags: [php]
 ---
 
 位运算符

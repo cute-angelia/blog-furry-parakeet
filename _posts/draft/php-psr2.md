@@ -1,3 +1,4 @@
+---
 title: php-psr2
 date: 2014-03-20 13:25:21
 tags: [php, psr]

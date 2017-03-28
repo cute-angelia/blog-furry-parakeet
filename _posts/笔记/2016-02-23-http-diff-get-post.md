@@ -1,6 +1,7 @@
+---
 title: HTTP通讯中GET和POST区别
 date: 2016-02-23 05:07:17
-tags: [http, study]
+tags: [http]
 ---
 
 update 2016-11-10

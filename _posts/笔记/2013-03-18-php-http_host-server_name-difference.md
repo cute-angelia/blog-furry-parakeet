@@ -1,6 +1,7 @@
+---
 title: PHP中 HTTP_HOST 和 SERVER_NAME 的区别
 date: 2013-03-18 16:25:02
-tags: [php, study]
+tags: [php]
 ---
 
 相同点：

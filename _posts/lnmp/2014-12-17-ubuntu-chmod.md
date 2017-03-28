@@ -1,7 +1,7 @@
 ---
 title: ubuntu_chmod
 date: 2014-12-17 21:39:01
-tags: [ubunut, chmod]
+tags: [linux]
 ---
 
 ## Ubuntu Chomd

@@ -1,6 +1,7 @@
+---
 title: mongodb
 date: 2014-03-20 13:25:21
-tags: [mongo, study]
+tags: [mongo]
 ---
 
 ## mongo 笔记

@@ -1,3 +1,4 @@
+---
 title: CentOS7 安装 Docker
 date: 2015-11-04 22:44:31
 tags: [docker, build]

@@ -1,7 +1,8 @@
+---
 title: 在CentOS搭建go
 date: 2015-07-08 04:02:17
 update: 2015-11-05 04:02:17
-tags: [centos, go, build]
+tags: [go]
 ---
 
 ## install

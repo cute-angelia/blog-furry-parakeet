@@ -1,3 +1,4 @@
+---
 title: Linux 打印你最常用的命令
 date: 2014-09-16 09:50:30
 tags: [linux]
