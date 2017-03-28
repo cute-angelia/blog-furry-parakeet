@@ -1,6 +1,7 @@
+---
 title: MAC 终端代理
 date: 2016-5-5 10:38:45
-tags: [mac, note, shell, proxy, surge]
+tags: [mac]
 ---
 
 1. Surge Mac

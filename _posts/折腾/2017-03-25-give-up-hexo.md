@@ -1,3 +1,4 @@
+---
 title: 放弃 hexo
 date: 2017-3-25 10:38:45
 tags: [hexo]

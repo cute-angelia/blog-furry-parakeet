@@ -1,6 +1,7 @@
+---
 title: Git Alias
 date: 2015-12-4 17:51:38
-tags: [git, note]
+tags: [git]
 ---
 
 Git Alias提升懒力值
