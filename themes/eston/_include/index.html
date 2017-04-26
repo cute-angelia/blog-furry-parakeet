@@ -1,0 +1,66 @@
+{% for post in site.posts limit: 5 %}
+<article itemscope itemtype="http://schema.org/BlogPosting" class="post post--photo post--cover post--index main-item main-post" id="3" data-ani="hide" data-js="post" data-permalink="drew-bardana/index.html">
+    <div class="post-inner">
+        <header class="post-item post-header">
+            <div class="wrapper post-wrapper">
+                <a href="{{ site.root }}{{ post.url }}" class="avatar post-author">
+                    <span itemprop="author" class="avatar-item">Cyw</span>
+                </a>
+            </div>
+        </header>
+        <!--<figure class="post-media">-->
+            <!--<img itemprop="image" src="content/images/2014/11/clifford.jpg" alt="Drew Bardana">-->
+        <!--</figure>-->
+        <section class="post-item post-body">
+            <div class="wrapper post-wrapper">
+                <h2 itemprop="headline" class="post-title">
+                    <a itemprop="url" href="{{ site.root }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                </h2>
+                <p itemprop="description" class="post-excerpt" data-js="excerpt">
+                    {{ post.content }}
+                </p>
+                <div class="btn post-tags" data-js="tags">
+                    {% if post.tags %}
+                    <span class="tags">
+                        {% for tag in post.tags %}
+                            <a href="{{ site.root }}/tags.html#{{ tag }}" title="{{ tag }}">#{{ tag }}</a>
+                            <a href="{{ site.root }}/tags.html#{{ tag }}" title="{{ tag }}" class="btn-item">
+                                <span itemprop="keywords">#{{ tag }}</span>
+                            </a>
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        <footer class="post-item post-footer">
+            <div class="wrapper post-wrapper">
+                <div class="meta post-meta">
+                    <a itemprop="datePublished" href="drew-bardana/index.html" class="icon-ui icon-ui-date meta-item meta-date">
+                        <span class="meta-count">{{ post.date | date:"%Y-%m-%d" }}</span>
+                    </a>
+                    <a href="drew-bardana/index.html#comments" class="icon-ui icon-ui-comment meta-item meta-comment">
+                        <span class="meta-count disqus-comment-count" data-disqus-identifier="3">0</span>
+                        <span class="meta-plural"> comments</span>
+                    </a>
+                    <div class="icon-ui icon-ui-share meta-item meta-share" data-js="popup share">
+                        <div class="popup" data-ani="hide" data-js="popup-list">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://demos.mikedidthis.co.uk/ghost-eston/drew-bardana/" class="icon icon-facebook popup-item" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span class="meta-count" data-js="share-facebook-count">0</span><span class="meta-plural" data-js="share-facebook-plural"> Share</span>
+                            </a>
+                            <a href="http://pinterest.com/pin/create/button/?url=http://demos.mikedidthis.co.uk/ghost-eston/drew-bardana/&amp;description=Drew%20Bardana&amp;media=http://demos.mikedidthis.co.uk/ghost-eston/ghost-eston/content/images/2014/11/clifford.jpg" class="icon icon-pinterest popup-item" onclick="window.open(this.href, 'pinterest-share', 'width=770,height=330');return false;">
+                                <span class="meta-count" data-js="share-pinterest-count">0</span><span class="meta-plural" data-js="share-pinterest-plural"> Pin</span>
+                            </a>
+                            <a href="https://twitter.com/share?text=Drew%20Bardana&amp;url=http://demos.mikedidthis.co.uk/ghost-eston/drew-bardana/" class="icon icon-twitter popup-item" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span class="meta-count" data-js="share-twitter-count">0</span><span class="meta-plural" data-js="share-twitter-plural"> Tweet</span>
+                            </a>
+                        </div>
+                        <span class="meta-count" data-js="share-total-count">0</span><span class="meta-plural" data-js="share-total-plural"> Share</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</article>
+{% endfor %}
+

@@ -1,7 +1,7 @@
 ---
 title: Docker IPTables and the No-Chain Error
 date: 2017-04-26 11:11:43
-tags: [php, redis]
+tags: [docker]
 ---
 
  > errors such as “failed programming external connectivity … iptables: No chain/target/match by that name”

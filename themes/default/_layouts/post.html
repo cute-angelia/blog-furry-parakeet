@@ -1,0 +1,95 @@
+---
+layout: default
+---
+
+<article>
+  <section class="title">
+    <h2>{{ page.title }} </h2>
+  </section>
+  <section class="meta">
+  <span class="time">
+    <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
+  </span>
+  {% if page.tags %}
+  <span class="tags">
+    {% for tag in page.tags %}
+    <a href="{{ site.root }}/tags.html#{{ tag }}" title="{{ tag }}">#{{ tag }}</a>
+    {% endfor %}
+  </span>
+  {% endif %}
+  </section>
+  <section class="post">
+  {{ content }}
+  </section>
+  <script type="text/javascript">
+      var disqus_shortname = '{{ site.disqus }}';
+      function leave_comment() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          $("#leave_comment_link").css("display", "none");
+          $("#collapse_comment_link").css("display", "");
+      };
+      function collapse_comment() {
+          $("#disqus_thread").slideUp(400, function() {
+              $("#disqus_thread").empty();
+              $("#leave_comment_link").css("display", "");
+              $("#collapse_comment_link").css("display", "none");
+              $("#disqus_thread").css("display", "");
+          });
+      };
+
+      document.onkeyup = function (event) {
+            var e = event || window.event;
+            var keyCode = e.keyCode || e.which;
+            switch (keyCode) {
+                case 37:
+                    if ($("#prev").length){
+                      var url = $("#prev").attr('href');
+                      window.location.href = url;
+                    }
+                    break;
+                case 39:
+                    if ($("#next").length){
+                      var url = $("#next").attr('href');
+                      window.location.href = url;
+                    }
+                    break;
+                case 13:
+                    if ($("#collapse_comment_link").is(":hidden")){
+                      leave_comment();
+                    } else {
+                      collapse_comment();
+                    }
+                    break;
+                default:
+                    break;
+            }
+      }
+  </script>
+  <div class="divider">
+    <span>
+    {% if page.previous %}
+    <a id="prev" href="{{ site.root }}{{ page.previous.url }}"><i class="fa fa-chevron-left"></i></a>
+    {% else %}
+    <i class="fa fa-circle"></i>
+    {% endif %}
+    </span>
+    {% if page.comment != false %}
+    <span><a href="javascript:leave_comment();" id="leave_comment_link"><i class="fa fa-comment-o"></i></a></span>
+    {% endif %}
+    
+    <span><a href="javascript:collapse_comment();" id="collapse_comment_link" style="display:none;"><i class="fa fa-chevron-up"></i></a></span>
+    <span>
+    {% if page.next %}
+    <a id="next" href="{{ site.root }}{{ page.next.url }}"><i class="fa fa-chevron-right"></i></a>
+    {% else %}
+    <i class="fa fa-circle"></i>
+    {% endif %}
+    </span>
+  </div>
+  <section class="comment">
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </section>
+</article>
