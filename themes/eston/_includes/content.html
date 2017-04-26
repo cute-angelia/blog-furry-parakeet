@@ -1,16 +1,8 @@
-<article itemscope itemtype="http://schema.org/BlogPosting"
-         class="post post--photo post--cover post--index main-item main-post" data-ani="hide" data-js="post">
+<article itemscope itemtype="http://schema.org/BlogPosting" class="post post--photo post--cover post--index main-item main-post"  data-ani="hide" data-js="post">
     <div class="post-inner">
-
-        <figure class="post-media">
-            {% if page.photo %}
-            <img itemprop="image" src="{{page.photo}}" alt="Drew Bardana">
-            {% endif %}
-            {% if page.video %}
-            <iframe width="560" height="321" src="{{page.video}}" frameborder="0" allowfullscreen=""></iframe>
-            {% endif %}
-        </figure>
-
+        <!--<figure class="post-media">-->
+        <!--<img itemprop="image" src="content/images/2014/11/clifford.jpg" alt="Drew Bardana">-->
+        <!--</figure>-->
         <section class="post-item post-body">
             <div class="wrapper post-wrapper">
                 <h2 itemprop="headline" class="post-title">
@@ -35,8 +27,7 @@
         <footer class="post-item post-footer">
             <div class="wrapper post-wrapper">
                 <div class="meta post-meta">
-                    <a itemprop="datePublished" href="{{ site.root }}{{ page.url }}"
-                       class="icon-ui icon-ui-date meta-item meta-date">
+                    <a itemprop="datePublished" href="{{ site.root }}{{ page.url }}" class="icon-ui icon-ui-date meta-item meta-date">
                         <span class="meta-count">{{ page.date | date:"%Y-%m-%d" }}</span>
                     </a>
                     <!--<a href="drew-bardana/index.html#comments" class="icon-ui icon-ui-comment meta-item meta-comment">-->
