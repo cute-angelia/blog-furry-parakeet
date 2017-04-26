@@ -9,11 +9,11 @@
     <title>{{ site.name }}</title>
     {% endif %}
     <link rel="shortcut icon" href="{{ site.root }}/favicon.ico">
-    <link href="{{ site.root }}/atom.xml" rel="alternate" title="{{ site.name }}" type="application/atom+xml"/>
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
 
     <link rel="stylesheet" href="{{ site.mytheme }}assets/css/eston-layout.min.css">
     <link rel="stylesheet" href="{{ site.mytheme }}assets/css/eston-skin-default.min.css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,600">
+    <link rel="stylesheet" href="{{ site.mytheme }}assets/css/font.css">
 </head>
 
 <div class="wrapper">
@@ -64,7 +64,7 @@
     </main>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{{ site.mytheme }}assets/js/jquery.min.js"></script>
 <script src="{{ site.mytheme }}assets/js/eston-core.min.js"></script>
 <script>
     // Events.
@@ -95,36 +95,7 @@
     $('[data-js~="header"]').attr('data-ani', 'fade-in');
 </script>
 
-<script>
-    // Disqus Short Name
-    var disqus_shortname = "rose1988c";
-    // Disqus Comments Count JS
-    (function () {
-        var s = document.createElement('script');
-        s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
-<script>
-    // Google Analytics Tracking ID.
-    var trackingID = "UA-56639336-1";
-
-    // Google Analytics JS
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', trackingID]);
-    _gaq.push(['_trackPageview']);
-    (function () {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-</script>
+{% include google.html %}
 
 </body>
 </html>
