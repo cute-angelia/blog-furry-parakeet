@@ -25,6 +25,7 @@ defaults:
 author: "陈韵文"
 atom-baseurl: "http://www.chenyunwen.cn"
 disqus: "rose1988c"
+google: "UA-98154695-1"
 
 navigations:
   - title: "Archive"

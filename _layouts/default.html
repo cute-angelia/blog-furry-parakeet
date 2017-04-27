@@ -11,9 +11,10 @@
     <link rel="shortcut icon" href="{{ site.root }}/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
 
-    <link rel="stylesheet" href="{{ site.mytheme }}assets/css/eston-layout.min.css">
-    <link rel="stylesheet" href="{{ site.mytheme }}assets/css/eston-skin-default.min.css">
-    <link rel="stylesheet" href="{{ site.mytheme }}assets/css/font.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/eston-layout.min.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/eston-skin-default.min.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/css/font.css">
+    <script src="{{ site.baseurl }}assets/js/jquery.min.js"></script>
 </head>
 
 <div class="wrapper">
@@ -37,7 +38,7 @@
             <nav class="nav header-item header-nav" role="navigation">
                 {% for nav in site.navigations %}
                 <span itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav-item nav-item-current">
-                    <a itemprop="{{ site.root }}{{ nav.href }}" href="{{ site.root }}{{ nav.href }}"
+                    <a itemprop="{{ site.baseurl }}{{ nav.href }}" href="{{ site.baseurl }}{{ nav.href }}"
                        title="{{ nav.title }}">
                         <span itemprop="name">{{ nav.title }}</span>
                     </a>
@@ -64,8 +65,8 @@
     </main>
 </div>
 
-<script src="{{ site.mytheme }}assets/js/jquery.min.js"></script>
-<script src="{{ site.mytheme }}assets/js/eston-core.min.js"></script>
+
+<script src="{{ site.baseurl }}assets/js/eston-core.min.js"></script>
 <script>
     // Events.
     eston.events.on('hover.start', function (e, $header, $cover, $footer) {
@@ -95,7 +96,10 @@
     $('[data-js~="header"]').attr('data-ani', 'fade-in');
 </script>
 
+
+{% if site.google %}
 {% include google.html %}
+{% endif %}
 
 </body>
 </html>
