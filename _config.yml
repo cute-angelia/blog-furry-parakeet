@@ -3,6 +3,7 @@ name: "鸢飞无羁"
 subtitle: "子非鱼,只能以事论事"
 root: ""
 
+baseurl: "/"
 mytheme: "/themes/eston/"
 
 # 分页
