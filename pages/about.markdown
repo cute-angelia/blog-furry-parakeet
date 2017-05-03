@@ -9,8 +9,9 @@ a
 
 who involved in 
 
-> [github](https://github.com/rose1988c)
-> [github](https://github.com/cute-angelia)
+> [github1](https://github.com/cute-angelia)
+> [github2](https://github.com/rose1988c)
+> [github3](https://git.oschina.net/vanillan)
 
 mail 
 
