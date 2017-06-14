@@ -1,12 +1,11 @@
 ---
-title: [转]Git subtree 要不要使用 –squash 参数
-date: 2017-05-26 18:00:41
+title: Git subtree 要不要使用 –squash 参数
 tags: [git]
 ---
 
-[source](http://www.fwolf.com/blog/post/246)
+Git
 
-在 上一篇文章 中把 Snoopy 理顺了， 其实 Gregarius 使用的是 MagpieRSS， 而 MagpieRSS 又使用了 Snoopy， 是一个两层的包含关系。
+[source](http://www.fwolf.com/blog/post/246)
 
 Git submodule 的繁琐似乎是世人皆知了， 所以我用 subtree 来解决上面的包含关系。即： 在 Gregarius 中以 subtree 的方式管理 MagpieRSS， 然后在 MagpieRSS 中以 subtree 的方式管理 Snoopy。
 
