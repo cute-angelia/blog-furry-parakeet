@@ -17,10 +17,13 @@ tar -C /usr/local -xzf go1.6.2.linux-amd64.tar.gz
 
 vim ~/.profile
 
-export GOROOT=$HOME/go
-export GOPATH=$HOME/go/path
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 
 source ~/.profile
+
+mkdir $HOME/go/src
+git clone xxxx.git
 
 ````
