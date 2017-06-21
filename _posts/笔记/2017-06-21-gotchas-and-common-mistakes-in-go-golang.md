@@ -8,6 +8,7 @@ PDF -> [PDF](/assets/att/go-notice.pdf)
 
 原文: [50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs](http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/)
 翻译: [Go的50度灰：新Golang开发者要注意的陷阱、技巧和常见错误](http://www.shwley.com/index.php/archives/80/), 译者: 影风LEY
+[blog](http://colobu.com/)
 
 Go是一门简单有趣的语言，但与其他语言类似，它会有一些技巧。。。这些技巧的绝大部分并不是Go的缺陷造成的。如果你以前使用的是其他语言，那么这其中的有些错误就是很自然的陷阱。其它的是由错误的假设和缺少细节造成的。
 
