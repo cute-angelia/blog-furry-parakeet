@@ -9,13 +9,12 @@ a
 
 who involved in 
 
-> [github1](https://github.com/cute-angelia)
-> [github2](https://github.com/rose1988c)
-> [github3](https://git.oschina.net/vanillan)
+> [github](https://github.com/cute-angelia)
+> [gitee](https://git.oschina.net/vanillan)
 
 mail 
 
-> rose2.099.c@gmail.com
+> rose20.99.c+inblog@gmail.com
 
 to reach me
 
