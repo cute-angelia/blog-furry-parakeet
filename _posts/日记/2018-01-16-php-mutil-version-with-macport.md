@@ -9,7 +9,6 @@ tags: [php]
 
 ```
 port select --set php php71
-
 ```
 
 切换版本.
