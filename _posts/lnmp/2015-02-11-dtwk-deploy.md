@@ -112,3 +112,19 @@ tags: [dtwk]
     chown -R www-data xxx 修改用户组
 ````
 
+
+### 解决 apache 下载 apk
+
+
+利用: 
+
+```
+    vim mods-available/mime.conf 
+    AddType application/vnd.android.package-archive .apk
+
+    vim site.conf
+    AliasMatch ^/index.php/downapp/android /var/www/Vanilla.Website.dtwk_web/apk/heater.apk
+ 
+```
+
+
