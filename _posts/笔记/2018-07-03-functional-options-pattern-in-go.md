@@ -124,18 +124,18 @@ func NewStuffClient(conn Connection, opts ...StuffClientOption) StuffClient {
 
 ```
 x := NewStuffClient(Connection{})
-fmt.Println(x) // prints &{{} 2 3}
+fmt.Println(x) 
 x = NewStuffClient(
     Connection{},
     WithRetries(1),
 )
-fmt.Println(x) // prints &{{} 2 1}
+fmt.Println(x) 
 x = NewStuffClient(
     Connection{},
     WithRetries(1),
     WithTimeout(1),
 )
-fmt.Println(x) // prints &{{} 1 1}
+fmt.Println(x) 
 
 ```
 这看起来相当不错而且可用. 而关于它的好的部分是, 我们可以随时添加新的选项, 只需要对代码进行非常少量的更改. 把这些都组合起来就是这样:
