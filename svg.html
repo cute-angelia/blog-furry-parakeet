@@ -39,41 +39,11 @@
 
 <!-- <a id="download" href="JavaScript:void(0);">点击下载</a> -->
 <script type="text/javascript">
-
-var helper = {
-    addCss: function(css) {
-      var style = document.createElement("style");
-      style.type = "text/css";
-      style.appendChild(document.createTextNode(css));
-      document.getElementsByTagName("head")[0].appendChild(style);
-    },
-    addScript: function(js) {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.appendChild(document.createTextNode(js));
-      document.body.appendChild(script);
-    },
-    getCss: function(src) {
-      var link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = src;
-      document.getElementsByTagName("head")[0].appendChild(link);
-    },
-    getScript: function(src, onload) {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.onload = onload;
-      script.src = src;
-      document.body.appendChild(script);
-    }
-};
-
-
-
 var data = ``;
 
 var flay = function(){
   var canvas = document.getElementById('canvas');
+    canvas.height=canvas.height;  // 清空
   var ctx = canvas.getContext('2d');
 
   var DOMURL = window.URL || window.webkitURL || window;
