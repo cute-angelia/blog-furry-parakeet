@@ -14,14 +14,13 @@ gems:
 
 # Default values
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
 
-author: "陈韵文"
+author: "banther"
 atom-baseurl: "http://www.chenyunwen.cn"
 disqus: "rose1988c"
 google: "UA-98154695-1"
