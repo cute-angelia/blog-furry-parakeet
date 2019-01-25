@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/eston-skin-default.min.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/font.css">
     <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/quicklink.umd.js"></script>
 </head>
 
 <div class="wrapper">
@@ -94,6 +95,11 @@
 
     // Show header.
     $('[data-js~="header"]').attr('data-ani', 'fade-in');
+
+    quicklink({
+        timeout: 4000,
+        origins: true,
+    });
 </script>
 
 
