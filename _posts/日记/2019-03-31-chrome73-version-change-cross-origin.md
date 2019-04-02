@@ -1,5 +1,3 @@
-# chrome 73 Provisional headers are shown
-
 chrome 升级到73版本会发生provisional headers are shown问题
 
 ajax相关请求没有返回数据
