@@ -1,6 +1,6 @@
 ---
 title: Go 函数选项模式
-tags: [golang]
+tags: [go]
 ---
 
 本文译自 [Functional Options Pattern in Go](https://halls-of-valhalla.org/beta/articles/functional-options-pattern-in-go,54/) 版权@归原文所有.
