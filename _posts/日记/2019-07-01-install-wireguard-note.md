@@ -1,6 +1,6 @@
 ![logo](https://cdn.jsdelivr.net/gh/WithdewHua/static@withdewhua-hugo/img/post/wireguard.png)
 
-### install
+### Install
 
 [官方文档](https://www.wireguard.com/install/)
 
