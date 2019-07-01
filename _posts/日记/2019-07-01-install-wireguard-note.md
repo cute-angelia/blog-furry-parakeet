@@ -1,10 +1,10 @@
 install wireguard
 
+![logo](https://cdn.jsdelivr.net/gh/WithdewHua/static@withdewhua-hugo/img/post/wireguard.png)
+
 ### install
 
-[doc](https://www.wireguard.com/install/)
-
-![logo](https://cdn.jsdelivr.net/gh/WithdewHua/static@withdewhua-hugo/img/post/wireguard.png)
+[官方文档](https://www.wireguard.com/install/)
 
 Red Hat Enterprise Linux / CentOS
 
