@@ -1,5 +1,3 @@
-install wireguard
-
 ![logo](https://cdn.jsdelivr.net/gh/WithdewHua/static@withdewhua-hugo/img/post/wireguard.png)
 
 ### install
@@ -13,7 +11,9 @@ yum update -y
 reboot # unless there were no updates
 
 curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
+
 yum install -y epel-release
+
 yum install -y wireguard-dkms wireguard-tools
 
 ```
