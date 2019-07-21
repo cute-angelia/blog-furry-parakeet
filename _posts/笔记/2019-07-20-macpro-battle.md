@@ -25,3 +25,6 @@ tags: [mac]
 ### 设置电池模式休眠模式为
 
 `pmset -b hibernatemode 25`
+
+
+### 关闭蓝牙
