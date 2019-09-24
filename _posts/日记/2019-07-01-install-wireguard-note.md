@@ -195,3 +195,9 @@ qrencode -t ansiutf8 < /etc/wireguard/client0.conf
 ```
 不支持 OVZ，建议使用 KVM 架构的 VPS，且推荐高版本系统；
 ```
+
+### 分流相关
+
+脚本 [脚本](https://github.com/fivesheep/chnroutes/blob/master/chnroutes.py)
+
+文章 [文章](https://blog.mozcp.com/wireguard-usage/)
