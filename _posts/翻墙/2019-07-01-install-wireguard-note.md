@@ -1,3 +1,8 @@
+---
+title: install-wireguard
+tags: [ss, wireguard]
+---
+
 ![logo](https://cdn.jsdelivr.net/gh/WithdewHua/static@withdewhua-hugo/img/post/wireguard.png)
 
 ### Install
