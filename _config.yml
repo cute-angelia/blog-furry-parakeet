@@ -25,6 +25,11 @@ atom-baseurl: "http://www.chenyunwen.cn"
 disqus: "rose1988c"
 google: "UA-98154695-1"
 
+links:
+  - title: "Vanilla"
+    class: "fa fa-list-ul"
+    href: "http://i.chenyunwen.cn"
+
 navigations:
   - title: "Archive"
     class: "fa fa-list-ul"
@@ -37,8 +42,7 @@ navigations:
     href: "pages/about.html"
   - title: "MeBlog"
     class: "fa fa-film"
-    href: "http://i.chenyunwen.cn"
-    #href: "pages/blogs.html"
+    href: "pages/blogs.html"
   - title: "Links"
     class: "fa fa-link"
     href: "pages/links.html"
