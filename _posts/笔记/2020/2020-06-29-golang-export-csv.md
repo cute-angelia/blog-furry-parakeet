@@ -22,7 +22,9 @@ tags: [golang, go]
 
 ```
 const url = window.URL.createObjectURL(
-  new Blob([data.content], { type: "text/plain" })
+  new Blob([new Uint8Array([0xef, 0xbb, 0xbf]), data.content], {
+    type: "text/plain;charset=utf-8"
+  })
 );
 const link = document.createElement("a");
 link.href = url;
