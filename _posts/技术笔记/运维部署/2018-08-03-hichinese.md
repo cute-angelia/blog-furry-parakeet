@@ -1,5 +1,5 @@
 ---
-title: HC部署笔记
+title: HiChinese部署笔记
 tags: [linux]
 ---
 
