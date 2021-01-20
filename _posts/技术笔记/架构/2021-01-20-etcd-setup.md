@@ -143,6 +143,7 @@ sudo ufw allow proto tcp from any to any port 2379,2380
 sudo systemctl daemon-reload
 sudo systemctl enable etcd
 sudo systemctl start etcd
+sudo systemctl status etcd
 ```
 
 ## Test Etcd Cluster installation
