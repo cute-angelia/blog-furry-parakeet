@@ -1,6 +1,6 @@
 ---
 title: golang cookie [转]
-tags: [golang, go]
+tags: [go]
 ---
 
 在做爬虫时有时候会遇到需要带已登录的 cookie 请求，这个时候最简单的方法是在浏览器登录后，在开发者面板找到 cookie 字符串，然后拷贝粘贴。这就面临一个问题需要把 cookie 字符串解析成 Go 语言 cookie 结构体。

@@ -1,6 +1,6 @@
 ---
 title: Jenkins for golang
-tags: [golang]
+tags: [go]
 ---
 
 ### docker install

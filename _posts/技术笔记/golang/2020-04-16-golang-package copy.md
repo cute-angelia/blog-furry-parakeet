@@ -1,6 +1,6 @@
 ---
 title: golang package
-tags: [golang]
+tags: [go]
 ---
 
 ### golang 工具类

@@ -1,6 +1,6 @@
 ---
-title: [转] gRPC系列(一) - Protobuf
-tags: [golang, go, grpc]
+title: gRPC系列(一) - Protobuf
+tags: [go, grpc]
 ---
 
 [来源](https://www.lixueduan.com/post/grpc/01-protobuf/)

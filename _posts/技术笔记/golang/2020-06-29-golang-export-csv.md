@@ -1,6 +1,6 @@
 ---
 title: golang 导出 csv
-tags: [golang, go]
+tags: [go]
 ---
 
 为什么写这个， 因为遇到坑了
