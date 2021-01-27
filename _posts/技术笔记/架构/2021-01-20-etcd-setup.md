@@ -181,3 +181,5 @@ curl http://125.94.39.48:2379/v2/keys/message
 [手把手教你 Etcd 的云端部署 2019 年 10 月 16 日](https://www.infoq.cn/article/tdcvy4jsvtwzgcnojl0r)
 
 [etcd 集群添加节点](https://www.cnblogs.com/ilifeilong/p/11625151.html)
+
+[Tutorial: Set up a Secure and Highly Available etcd Cluster](https://thenewstack.io/tutorial-set-up-a-secure-and-highly-available-etcd-cluster/)
