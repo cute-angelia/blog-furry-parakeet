@@ -34,27 +34,6 @@ mv /tmp/etcd-download-test/etcdctl /usr/local/bin/
 
 ### create etcd.service
 
-> 环境配置
-
-```
-INT_NAME="eth0"
-
-# ETCD_NAME=$(hostname -s)
-
-ETCD_NAME="etcd-main"
-
-ETCD_HOST_IP=$(ip addr show $INT_NAME | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
-
-
-# 节点IP配置， 需要在 `/etc/hosts` 配置 `etcd1` `etcd2` `etcd3` 的 `ip` 地址
-# 如：
-17.0.0.1 etcd1
-17.0.0.2 etcd2
-17.0.0.3 etcd3
-
-
-```
-
 > 创建新用户，可选
 
 ```
@@ -69,8 +48,22 @@ sudo chown -R etcd:etcd /var/lib/etcd/
 > 创建启动服务
 
 ```
+# 节点别名 ETCD_NAME=$(hostname -s)
+ETCD_NAME="etcd-main"
+
+# 制定网卡，获取内网 ip
+INT_NAME="eth0"
+ETCD_HOST_IP=$(ip addr show $INT_NAME | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+
+# 外网IP
 ETCD_HOST_IP_OUT=47.99.136.83
 
+# 多节点IP配置， 需要在 `/etc/hosts` 配置 `etcd1` `etcd2` `etcd3` 的 `ip` 地址， 内网可连填内网，不可连填外网
+17.0.0.1 etcd1
+17.0.0.2 etcd2
+17.0.0.3 etcd3
+
+# 服务配置
 cat <<EOF | sudo tee /etc/systemd/system/etcd.service
 [Unit]
 Description=etcd service
@@ -87,7 +80,7 @@ ExecStart=/usr/local/bin/etcd \\
   --listen-client-urls http://0.0.0.0:2379 \\
   --advertise-client-urls http://${ETCD_HOST_IP}:2379,http://${ETCD_HOST_IP_OUT}:2380 \\
   --initial-cluster-token etcd-cluster-0 \\
-  --initial-cluster ${ETCD_NAME}=http://${ETCD_NAME}:2380,etcd-bwg=http://etcd-bwg:2380 \\
+  --initial-cluster ${ETCD_NAME}=http://${ETCD_NAME}:2380,etcd1=http://etcd1:2380 \\
   --initial-cluster-state new \
 
 [Install]
@@ -181,3 +174,5 @@ curl http://125.94.39.48:2379/v2/keys/message
 [手把手教你 Etcd 的云端部署 2019 年 10 月 16 日](https://www.infoq.cn/article/tdcvy4jsvtwzgcnojl0r)
 
 [etcd 集群添加节点](https://www.cnblogs.com/ilifeilong/p/11625151.html)
+
+[Tutorial: Set up a Secure and Highly Available etcd Cluster](https://thenewstack.io/tutorial-set-up-a-secure-and-highly-available-etcd-cluster/)
