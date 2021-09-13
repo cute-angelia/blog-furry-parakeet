@@ -12,6 +12,14 @@ tags: [ss, BBR]
 
 ## 最新安装
 
+请务必使用UFW防火墙添加客户端使用的IP和SS服务的端口
+
+一键安装
+
+```
+wget --no-check-certificate https://raw.githubusercontent.com/lanlandezei/shadowsocks-libev/main/install.sh && chmod +x install.sh && bash install.sh
+```
+
 使用 `snap` 安装
 
 ```bash
@@ -38,7 +46,7 @@ vim /var/snap/shadowsocks-libev/common/etc/shadowsocks-libev/config.json
 
 # 启动
 systemctl start snap.shadowsocks-libev.ss-server-daemon.service
-systemctl restart snap.shadowsocks-libev.ss-server-daemon.service
+systemctl restart snap.shadowsocks-libev.ss-server-daemon.service && systemctl status snap.shadowsocks-libev.ss-server-daemon.service
 
 # 查看状态
 systemctl status snap.shadowsocks-libev.ss-server-daemon.service
@@ -48,6 +56,9 @@ systemctl enable snap.shadowsocks-libev.ss-server-daemon.service
 
 # 排查错误
 journalctl -u snap.shadowsocks-libev.ss-server-daemon.service
+
+# alias
+snap alias shadowsocks-libev.ss-server ss-server
 ```
 
 推荐的Shadowsocks-libev服务器配置
