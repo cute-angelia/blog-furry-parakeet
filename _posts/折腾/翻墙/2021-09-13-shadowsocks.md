@@ -1,46 +1,95 @@
 ---
-title: shadowsocks-libev搭建
-date: 2017-03-21 22:27:22
+title: shadowsocks-libev 搭建
+date: 2021-09-13 22:27:22
 tags: [ss, BBR]
 ---
 
-> 日期：2017 年 02 月 24 日
-> centos
+> 日期：2017-02-24
+>
+> 更新：2021-09-13
+>
+> 平台：Centos 7
 
-主流版本: Python,libev,Go,Nodejs
+## 最新安装
 
-### 互利
+使用 `snap` 安装
 
-推荐服务商: [VULTR](https://www.vultr.com/?ref=6877343)
-大家都可以得到\$10
+```bash
+# install snap
 
-### 安装
+# Adding EPEL to CentOS 8
+dnf install epel-release
+dnf upgrade
+
+# Adding EPEL to CentOS 7
+yum install epel-release
+
+# install
+yum install snapd -y
+systemctl enable --now snapd.socket
+
+# install shadowsocks
+snap install shadowsocks-libev --edge
+
+vim /var/snap/shadowsocks-libev/common/etc/shadowsocks-libev/config.json
+
+# 修改配置端口
+# 使用下面推荐配置
+
+# 启动
+systemctl start snap.shadowsocks-libev.ss-server-daemon.service
+systemctl restart snap.shadowsocks-libev.ss-server-daemon.service
+
+# 查看状态
+systemctl status snap.shadowsocks-libev.ss-server-daemon.service
+
+# 开机启动
+systemctl enable snap.shadowsocks-libev.ss-server-daemon.service
+
+# 排查错误
+journalctl -u snap.shadowsocks-libev.ss-server-daemon.service
+```
+
+推荐的Shadowsocks-libev服务器配置
+
+```
+{
+    "server":["::0","0.0.0.0"],
+    "server_port":4433,
+    "encryption_method":"chacha20-ietf-poly1305",
+    "password":"55hrNuBSPjnm9r0R0tHgSw==",
+    "mode":"tcp_only",
+    "fast_open":false
+}
+```
+
+[snap install shadowsocks]: https://gfw.report/blog/ss_tutorial/zh/	"如何部署一台抗封锁的Shadowsocks-libev服务器"
+
+------
+
+### 旧版2017安装
 
 两行代码快速安装, 注意系统装 `centos 7`
 
-```
+```bash
 wget --no-check-certificate -O shadowsocks-libev.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev.sh
 
 chmod +x shadowsocks-libev.sh && ./shadowsocks-libev.sh
 
-```
-
-### 卸载
-
-```
+# 卸载
 ./shadowsocks-libev.sh uninstall
-```
 
-### 使用命令
-
-```
+# 使用命令
 启动：/etc/init.d/shadowsocks start
 停止：/etc/init.d/shadowsocks stop
 重启：/etc/init.d/shadowsocks restart
 查看状态：/etc/init.d/shadowsocks status
+
 ```
 
-### 其他
+
+
+其他
 
 > [锐速](https://www.91yun.org/serverspeeder91yun) > [BBR TCP 网络优化](/2018/03/28/BBR.html)
 
